@@ -5,7 +5,7 @@ State your app in a nutshell, or one-sentence pitch. Give some elaboration on wh
 This browser based web application to ... 
 
 ## 2. Names of Contributors
-List team members and/or short bio's here... Tommy likes to eat fish.
+List team members and/or short bio's here... Tommy likes to eat fish
 * Dominic Cheung dcheung71@my.bcit.ca - Hi, I am a beginner programmer. Excited to learn Javascript. My favorite food is ramen.
 * Maksim Sadreev msadreev@my.bcit.ca 
 * Tommy Ren tren7@my.bcit.ca - Hi, I am Tommy. I want to improve my English speaking and listening. Tommy is an international student.
