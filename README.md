@@ -6,7 +6,7 @@ This browser based web application to ...
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Dominic Cheung dcheung71@my.bcit.ca - Hi, I am a beginner programmer. Excited to learn Javascript.
+* Dominic Cheung dcheung71@my.bcit.ca - Hi, I am a beginner programmer. Excited to learn Javascript. My favorite food is ramen.
 * Maksim Sadreev msadreev@my.bcit.ca 
 * Tommy Ren tren7@my.bcit.ca - Hi, I am Tommy. I want to improve my English speaking and listening. Tommy is an international student.
 	
