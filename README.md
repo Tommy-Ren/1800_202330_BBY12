@@ -8,7 +8,7 @@ This browser based web application to ...
 List team members and/or short bio's here... 
 * Dominic Cheung dcheung71@my.bcit.ca - Hi, I am a beginner programmer. Excited to learn Javascript.
 * Maksim Sadreev msadreev@my.bcit.ca 
-* Tommy Ren tren7@my.bcit.ca - Hi, I am Tommy. I want to improve my English speaking and listening.
+* Tommy Ren tren7@my.bcit.ca - Hi, I am Tommy. I want to improve my English speaking and listening. Tommy is an international student.
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
