@@ -11,11 +11,10 @@ body {
 	padding: 0px;
 }
 
-#loginbuttons {
-    display: block;
+#registerLink {
     background-color: black;
-    font-display: center;
-    
+    color: white;
+    text-align: center;
 }
 
 }
