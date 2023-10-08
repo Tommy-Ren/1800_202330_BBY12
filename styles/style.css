@@ -2,9 +2,18 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
+@media only screen and (max-width : 430px) {
+
 body {
 	font-family: 'Roboto', 'Montserrat', sans-serif;
 	font-size:100%;
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+#loginbuttons {
+    display: block;
+    background-color: black;
+}
+
 }
