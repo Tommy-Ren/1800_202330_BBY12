@@ -1,8 +1,7 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+With rampant inflation, you deserve to find the lowest meat prices; save your wallet with every bite, Savebites!
 
 ## 2. Names of Contributors
 List team members and/or short bio's here...
@@ -43,6 +42,8 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
+├── main.html                # main HTML file after users log in
+├── login.html               # login HTML file, can use third party log in services as well as register a new account with email
 └── README.md
 
 It has the following subfolders and files:
@@ -52,7 +53,7 @@ It has the following subfolders and files:
 ├── scripts                  # Folder for scripts
     /blah.js                 # 
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    /style.css               # Font and Icon imports, media query size to iPhone 15 Pro Max, minor CSS adjustments 
 
 
 
