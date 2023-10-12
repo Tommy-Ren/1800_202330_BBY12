@@ -32,6 +32,20 @@
 	display: flex;
 	justify-content: space-around;
 }
+.logo {
+	display: block; 
+	margin: 0 auto; 
+	max-width: 75%; 
+	height: auto;
+	filter: hue-rotate(0deg)
+  }
+.welcome-section {
+    text-align: center;
+    padding: 20px;	
+}
+.welcome-section h1 {
+    font-size: 50px; 
+	}
 .nav-icon {
 	display: flex;
 	justify-content: center;
