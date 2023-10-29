@@ -33,32 +33,79 @@
         <!------------------------------>
         <!-- Your HTML Layout go here -->
         <!------------------------------>
-        <!-- Stuff for body goes here -->
-        <div class="image-container">
-            <img src="images/Savebites.JPG" class="logo">
-          </div>
-        <div class="welcome-section">
-            <h1>Welcome to Savebites!</h1>
-        </div>
+        <!-- Section for Stores, then the items -->
+        <div class="container-fluid">
+            <h1>Shopping List</h1>
 
-        <!-- Buttons for Login Pages Start -->
-        <div class="d-grid gap-2 col-4 mx-auto">
-            <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-envelope"></i>&nbsp;Login with
-                    Email</button></a>
-            <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-google"></i>&nbsp;Login with
-                    Google</button></a>
-            <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-apple"></i>&nbsp;Login with
-                    Apple</button></a>
-            <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-facebook"></i>&nbsp;Login with
-                    Facebook</button></a>
-            <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-twitter"></i>&nbsp;Login with
-                    Twitter</button></a>
-        </div>
-        <br>
-        <a href="#">
-            <div id="registerLink"><i>Not yet a member? Register here</i></div>
-        </a>
+            <!-- Checkbox for Stores -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    <h2>Safeway</h2>
+                </label>
+            </div>
+            <!-- Card Item -->
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="./images/hike2.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!-- Checkbox for Stores -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    <h2>Save-On-Foods</h2>
+                </label>
+            </div>
+            <!-- Card Item -->
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="./images/hike1.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
+
+
+        </div>
+        <!-- Bottom Navigation Start -->
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <div class="mobile-nav">
+                <a href="home-page.html" class="nav-icon">
+                    <img src="images/house-door.svg" alt="">
+                </a>
+                <a href="#" class="nav-icon">
+                    <img src="images/search.svg" alt="">
+                </a>
+                <a href="#" class="nav-icon">
+                    <img src="images/plus-circle.svg" alt="">
+                </a>
+                <a href="#" class="nav-icon">
+                    <img src="images/cart2.svg" alt="">
+                </a>
+                <a href="#" class="nav-icon">
+                    <img src="images/gear-fill.svg" alt="">
+                </a>
+                </div>
+        </nav>
+		<!-- Bottom Navigation End -->
 
         <!---------------------------------------------->
         <!-- Your own JavaScript functions go here    -->
