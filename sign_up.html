@@ -34,24 +34,25 @@
         <!-- Your HTML Layout go here -->
         <!------------------------------>
         <!-- Stuff for body goes here -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="welcome-section">
                 <h1>Welcome to Savebites!</h1>
             </div>
             <form>
-                <div class="mb-3">
+                <div class="form mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-                <div class="mb-3">
+                <div class="form mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
-                <div class="mb-3 form-check">
+                <div class="form mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Remember my password</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary d-grid gap-2 col-12 mx-auto">Submit</button>
+                <button type="submit" class="btn btn-secondary d-grid gap-2 col-12 mx-auto">Cancel</button>
             </form>
         </div>
 
