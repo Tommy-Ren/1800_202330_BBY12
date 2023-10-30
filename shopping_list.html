@@ -42,10 +42,10 @@
 
         <!-- Section for Stores, then the items -->
         <div class="container-fluid">
-            
+
             <div class="d-flex flex-row mb-3">
                 <button type="button" class="btn btn-outline-dark" style="margin-right: 10px;">Back</button>
-                <h1>Item Details</h1>
+                <h1>Shopping List</h1>
             </div>
 
             <!-- Checkbox for Stores -->
@@ -89,7 +89,7 @@
             <!-- Card Item End-->
             <!-- Checkbox for Stores -->
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                     <h2>Save-On-Foods</h2>
                 </label>
@@ -109,38 +109,35 @@
                             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
 
                             <!-- buttons for quantity -->
-                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                <div class="btn-group me-2" role="group" aria-label="First group">
-                                  <button type="button" class="btn btn-primary">1</button>
-                                  <button type="button" class="btn btn-primary">2</button>
-                                  <button type="button" class="btn btn-primary">3</button>
-                                  <button type="button" class="btn btn-primary">4</button>
-                                </div>
-                              
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Quantity"
+                                    aria-label="Recipient's username with two button addons">
+                                <button class="btn btn-outline-secondary" type="button">Add 1</button>
+                                <button class="btn btn-outline-secondary" type="button">Minus 1</button>
+                            </div>
                             <!-- buttons for quantity End -->
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Card Item End-->
 
+            <br>
             <!-- Continue button for next page -->
             <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="button">Continue</button>
             </div>
             <!-- Continue button for next page END -->
 
-            <!-- 4 line breaks to account for navbar -->
-            <br>
-            <br>
-            <br>
-            <br>
-            <!-- 4 line breaks to account for navbar END-->
+
         </div>
 
+        <!-- 4 line breaks to account for navbar -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- 4 line breaks to account for navbar END-->
         <!-- Bottom Navigation Start -->
         <nav class="navbar fixed-bottom navbar-light bg-light">
             <div class="mobile-nav">
