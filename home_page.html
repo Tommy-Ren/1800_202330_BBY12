@@ -1,5 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
-
+  
     <head>
         <title>My BCIT Project</title>
         <meta name="comp1800 template" content="My 1800 App">
@@ -31,32 +32,68 @@
 
         <!------------------------------>
         <!-- Your HTML Layout go here -->
+        <br><br><br>
+        <div class="location-container">
+            <span class="location-icon">📍</span>
+            Your Location
+        </div>
+        <h1>Home Page</h1>
 
-        <div class="card text-bg-dark">
-            <img src="..." class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small>Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-    
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+        <!-- Popular Section -->
+
+        <section class="mt-5">
+          <h2 class="mb-4">Popular</h2>
+          <div class="popular">
+              <img src="images/drink1.jpg" class="card-img-top" alt="Description of Image">
+              <div class="card-body">
+                  <h5 class="card-title">Title of the popular post</h5>
+                  <p class="card-text">Description or content of the popular post goes here.</p>
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          </div>
+        </section>
+      <!-- Popular Section End -->
+      
+      <!-- All Posts Section Start -->
+      <section class="mt-5">
+        <h2 class="mb-4">All Posts</h2>
+        <div class="container-fluid">
+            <div class="post-card">
+                <img src="images/drink1.jpg" alt="Image Description" class="post-image">
+                <div class="post-content">
+                    <h2 class="post-title">Item 1</h2>
+                    <p class="post-description">Lorem ipsum dolor sit amet consectetur. Adipiscing integer facilisis pellentesque massa pretium dictum lectus.</p>
+                    <div class="post-actions">
+                        <span class="like-icon">👍 5543</span>
+                        <span class="dislike-icon">👎 2</span>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        <!------------------------------>
-        <!-- Stuff for body goes here -->
+            <div class="post-card">
+                <img src="images/drink2.jpg" alt="Image Description" class="post-image">
+                <div class="post-content">
+                    <h2 class="post-title">Item 2</h2>
+                    <p class="post-description">Lorem ipsum dolor sit amet consectetur. Adipiscing integer facilisis pellentesque massa pretium dictum lectus.</p>
+                    <div class="post-actions">
+                        <span class="like-icon">👍 1123</span>
+                        <span class="dislike-icon">👎 2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="post-card">
+                <img src="images/drink3.jpg" alt="Image Description" class="post-image">
+                <div class="post-content">
+                    <h2 class="post-title">Item 3</h2>
+                    <p class="post-description">Lorem ipsum dolor sit amet consectetur. Adipiscing integer facilisis pellentesque massa pretium dictum lectus.</p>
+                    <div class="post-actions">
+                        <span class="like-icon">👍 2115</span>
+                        <span class="dislike-icon">👎 10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br>
+    <!-- All Posts Section End -->
 
         <!-- Bottom Navigation Start -->
         <nav class="navbar fixed-bottom navbar-light bg-light">

@@ -59,3 +59,48 @@
 	margin-top: 50px;
 	bottom: 30px;
 }
+
+/************************ Home Page  ***************************/
+.post-card {
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+    width: 100%;  
+  
+}
+
+.post-image {
+    width: 60px;  
+    height: 60px; 
+    border-radius: 15%;  
+    object-fit: cover;  
+    margin-right: 10px;  
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+
+.like-icon, .dislike-icon {
+    margin-right: 5px;  
+    display: flex;
+    align-items: center;
+    gap: 3px;  
+}
+
+.popular {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;  
+    width: 100%;  
+}
+
+.card-img-top {
+	border-radius: 15px;
+}
