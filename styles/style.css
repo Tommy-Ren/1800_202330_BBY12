@@ -60,6 +60,10 @@
 	bottom: 30px;
 }
 
+.responsive {
+    width: 100%;
+    height: auto;
+  }
 /************************ Home Page  ***************************/
 .post-card {
     display: flex;
