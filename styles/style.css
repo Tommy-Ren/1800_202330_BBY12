@@ -108,3 +108,21 @@
 .card-img-top {
 	border-radius: 15px;
 }
+
+/************************ Search Page  ***************************/
+
+.recent-search{
+	padding-top: 10px;
+}
+
+.tags-row {
+	padding-top: 10px;
+}
+
+.tag {
+	width: 32%;
+	height: 50px;
+}
+#tags {
+	padding-top: 20px;
+}
