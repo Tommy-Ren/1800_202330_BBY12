@@ -90,11 +90,11 @@
     gap: 5px; 
 }
 
-.like-icon, .dislike-icon {
-    margin-right: 5px;  
-    display: flex;
-    align-items: center;
-    gap: 3px;  
+.like-button, .dislike-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 .popular {
@@ -107,4 +107,89 @@
 
 .card-img-top {
 	border-radius: 15px;
+}
+
+.popular-posts-container {
+	white-space: nowrap;
+	overflow-x: auto;
+	padding-bottom: 10px;
+  }
+  
+  .popular-post {
+	display: inline-flex;
+	flex-direction: column;
+	width: 300px; 
+	margin: 10px; 
+	border-radius: 15px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional shadow for better separation */
+  }
+  
+  .popular-post img {
+	width: 100%;
+	height: auto; /* Maintain aspect ratio */
+  }
+  
+  .popular-post .card-body {
+	padding: 15px;
+  }
+  
+  .card-title {
+	margin-bottom: 0.75rem;
+  }
+  
+  .card-text {
+	white-space: normal;
+  }
+
+  /************************ Map  ***************************/
+
+  #map {
+    height: 700px; /* or any other height */
+    width: 100%; /* or any specific width */
+  }
+
+  .controls {
+    position: end; /* For example, to place it at the top-left corner of the page */
+    top: 10px;
+    left: 10px;
+    z-index: 10; /* Make sure it's above the map */
+  }
+/************************ Photo Page ***************************/
+
+.camera {
+	position: relative;
+	width: 100%;
+	height: 90%; 
+  }
+  
+  video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+  
+  
+  #snap {
+	width: 20%;
+	bottom: 5%; 
+  }
+
+  /************************ Upload Page ***************************/
+
+ .upload-btn-wrapper {
+    position: fixed; 
+    left: 0;
+    right: 0;
+    padding: 0 15px; 
+	margin-bottom: 6rem;
+}
+
+
+.form-control-lg {
+    height: calc(1.5em + 1rem + 2px); 
+    padding: .5rem 1rem; 
+    font-size: 1.25rem;
+    line-height: 1.5; 
+    border-radius: .3rem; 
+	margin-top: 1rem;
 }
