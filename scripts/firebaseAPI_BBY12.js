@@ -133,6 +133,7 @@ function createPostCard(post) {
   const likeButton = document.createElement('button');
   likeButton.className = 'like-button';
   likeButton.textContent = `👍 ${post.Like_Num}`; 
+  attachLikeButtonListener(likeButton, post.id);
 
   const dislikeButton = document.createElement('button');
   dislikeButton.className = 'dislike-button';
@@ -144,6 +145,33 @@ function createPostCard(post) {
   postCard.append(postImage, postContent);
 
   return postCard;
+}
+
+function attachLikeButtonListener(likeButton, postId) {
+  likeButton.addEventListener('click', function() {
+    // Reference to the Firestore document for the post
+    const postRef = db.collection('Posts').doc(postId);
+
+    // Run a transaction to ensure that the like count is incremented atomically
+    return db.runTransaction((transaction) => {
+      return transaction.get(postRef).then((postDoc) => {
+        if (!postDoc.exists) {
+          throw "Document does not exist!";
+        }
+
+        // Compute the new like count
+        let newLikeCount = (postDoc.data().Like_Num || 0) + 1;
+
+        // Update the Firestore document
+        transaction.update(postRef, { Like_Num: newLikeCount });
+
+        // Update the button text
+        likeButton.textContent = `👍 ${newLikeCount}`;
+      });
+    }).catch((error) => {
+      console.error("Transaction failed: ", error);
+    });
+  });
 }
 
 // Function to fetch posts and render them
@@ -163,3 +191,37 @@ function renderPosts() {
 
 // Call renderPosts to render posts when the page loads
 document.addEventListener('DOMContentLoaded', renderPosts);
+document.getElementById('post-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get the title and description from the form
+  const title = document.getElementById('title-input').value;
+  const description = document.getElementById('description-input').value;
+
+  // Save the post to Firestore without an image URL
+  savePostToFirestore(title, description, null)
+    .then(() => {
+      // Clear the form after saving
+      document.getElementById('post-form').reset();
+
+      // Optionally re-render posts if needed
+      renderPosts();
+    })
+    .catch((error) => {
+      console.error("Error adding post: ", error);
+    });
+});
+function savePostToFirestore(title, description, imageURL) {
+  const postData = {
+    title,
+    description,
+    Like_Num: 0, 
+    Dislike_Num: 0 
+  };
+
+  if (imageURL) {  // Only add the image property if imageURL is not null
+    postData.image = imageURL;
+  }
+
+  return db.collection('Posts').add(postData);
+}
