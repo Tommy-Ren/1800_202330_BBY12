@@ -211,17 +211,3 @@ document.getElementById('post-form').addEventListener('submit', function(event) 
       console.error("Error adding post: ", error);
     });
 });
-function savePostToFirestore(title, description, imageURL) {
-  const postData = {
-    title,
-    description,
-    Like_Num: 0, 
-    Dislike_Num: 0 
-  };
-
-  if (imageURL) {  // Only add the image property if imageURL is not null
-    postData.image = imageURL;
-  }
-
-  return db.collection('Posts').add(postData);
-}
