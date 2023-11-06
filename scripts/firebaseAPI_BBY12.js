@@ -113,7 +113,7 @@ function createPostCard(post) {
 
   const postImage = document.createElement('img');
   postImage.className = 'post-image';
-  postImage.src = post.image; // Replace 'image' with the actual field name from your Firestore document
+  postImage.src = post.image; 
   postImage.alt = 'Post Image';
 
   const postContent = document.createElement('div');
@@ -121,11 +121,11 @@ function createPostCard(post) {
 
   const postTitle = document.createElement('h2');
   postTitle.className = 'post-title';
-  postTitle.textContent = post.title; // Replace 'title' with the actual field name from your Firestore document
+  postTitle.textContent = post.title; 
 
   const postDescription = document.createElement('p');
   postDescription.className = 'post-description';
-  postDescription.textContent = post.description; // Replace 'description' with the actual field name from your Firestore document
+  postDescription.textContent = post.description; 
 
   const postActions = document.createElement('div');
   postActions.className = 'post-actions';
