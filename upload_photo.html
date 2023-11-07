@@ -15,14 +15,14 @@
             <!-- back button -->
             <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark"
                     style="margin-right: 10px;">Back</button></a>
-            
+        </div>
             <!-- Display the captured photo -->
             <div class="mb-3">
                 <img id="capturedPhoto" src="images/drink1.jpg" alt="Captured Photo" class="img-fluid">
             </div>
 
             <!-- Input fields for the post details -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <input type="text" class="form-control form-control-lg" id="inputTitle"
                     placeholder="Input Title Here...">
             </div>
@@ -42,37 +42,47 @@
                 <input type="text" class="form-control form-control-lg" id="inputExpiry"
                     placeholder="Input Deal Expiry Date Here...">
             </div>
-        </div>
+        </div> -->
 
-        <!-- Upload button fixed at the bottom above the navbar -->
-        <div class="upload-btn-wrapper fixed-bottom"> <!-- mb-5 to lift it above the navbar -->
-            <button type="button" class="btn btn-primary w-100">Upload Now</button>
-        </div>
-
-        <!-- Bottom Navigation Start -->
-        <nav class="navbar fixed-bottom navbar-light bg-light">
-            <div class="mobile-nav">
-                <a href="home_page.html" class="nav-icon">
-                    <img src="images/house-door.svg" alt="">
-                </a>
-                <a href="search_page.html" class="nav-icon">
-                    <img src="images/search.svg" alt="">
-                </a>
-                <a href="upload_photo.html" class="nav-icon">
-                    <img src="images/plus-circle.svg" alt="">
-                </a>
-                <a href="shopping_list.html" class="nav-icon">
-                    <img src="images/cart2.svg" alt="">
-                </a>
-                <a href="setting_page.html" class="nav-icon">
-                    <img src="images/gear-fill.svg" alt="">
-                </a>
+            <!-- Upload button fixed at the bottom above the navbar -->
+            <div class="upload-btn-wrapper fixed-bottom"> <!-- mb-5 to lift it above the navbar -->
+                <button onclick="savePostToFirestore()" type="button" class="btn btn-primary w-100">Upload Now</button>
             </div>
-        </nav>
-        <!-- Bottom Navigation End -->
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="./scripts/photo.js"></script>
+
+            <!-- testing buttons -->
+            <form id="post-form">
+                <input type="text" id="title-input" placeholder="Title" required />
+                <textarea id="description-input" placeholder="Description" required></textarea>
+                <button type="submit">Add Post</button>
+            </form>
+
+            <!-- Bottom Navigation Start -->
+            <nav class="navbar fixed-bottom navbar-light bg-light">
+                <div class="mobile-nav">
+                    <a href="home_page.html" class="nav-icon">
+                        <img src="images/house-door.svg" alt="">
+                    </a>
+                    <a href="search_page.html" class="nav-icon">
+                        <img src="images/search.svg" alt="">
+                    </a>
+                    <a href="upload_photo.html" class="nav-icon">
+                        <img src="images/plus-circle.svg" alt="">
+                    </a>
+                    <a href="shopping_list.html" class="nav-icon">
+                        <img src="images/cart2.svg" alt="">
+                    </a>
+                    <a href="setting_page.html" class="nav-icon">
+                        <img src="images/gear-fill.svg" alt="">
+                    </a>
+                </div>
+            </nav>
+            <!-- Bottom Navigation End -->
+            <!-- Scripts -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="./scripts/photo.js"></script>
+            <script src="./scripts/upload_photo.js"></script>
+            <script src="./scripts/main.js"></script>
+
     </body>
 
 </html>
