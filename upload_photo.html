@@ -11,50 +11,33 @@
     </head>
 
     <body>
-        <div class="container py-4 mb-5"> <!-- mb-5 to give space for the fixed upload button -->
-            <!-- back button -->
+        <div class="container py-4"> <!-- mb-5 to give space for the fixed upload button -->
+        <!-- back button -->
             <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark"
-                    style="margin-right: 10px;">Back</button></a>
+                style="margin-right: 10px;">Back</button></a>
         </div>
-            <!-- Display the captured photo -->
-            <div class="mb-3">
-                <img id="capturedPhoto" src="images/drink1.jpg" alt="Captured Photo" class="img-fluid">
-            </div>
 
-            <!-- Input fields for the post details -->
-            <!-- <div class="mb-3">
-                <input type="text" class="form-control form-control-lg" id="inputTitle"
-                    placeholder="Input Title Here...">
-            </div>
-            <div class="mb-3">
-                <input type="number" class="form-control form-control-lg" id="inputPrice"
-                    placeholder="Input Price Here...">
-            </div>
-            <div class="mb-3">
-                <input type="text" class="form-control form-control-lg" id="inputLocation"
-                    placeholder="Input Location Here...">
-            </div>
-            <div class="mb-3">
-                <input type="text" class="form-control form-control-lg" id="inputTags"
-                    placeholder="Input Tags Here...">
-            </div>
-            <div class="mb-3">
-                <input type="text" class="form-control form-control-lg" id="inputExpiry"
-                    placeholder="Input Deal Expiry Date Here...">
-            </div>
-        </div> -->
+        <!-- Display the captured photo -->
+        <div class="mb-3">
+            <img id="capturedPhoto" src="images/drink1.jpg" alt="Captured Photo" class="img-fluid">
+        </div>
 
-
-
-            <!-- testing buttons -->
-            <form id="post-form">
-                <input type="text" id="title-input" placeholder="Title" required />
-                <textarea id="description-input" placeholder="Description" required></textarea>
-                <!-- Upload button fixed at the bottom above the navbar -->
-                <div class="upload-btn-wrapper fixed-bottom"> 
-                    <button type="submit" class="btn btn-primary w-100">Add Post</button>
-                </div>
-            </form>
+        <!-- Input fields for the post details -->
+        <form class= "mb-3" id="post-form">
+            <input type="text" class="form-control form-control-lg" id="title-input"
+                placeholder="Input Title Here..." required>
+            <input type="number" class="form-control form-control-lg" id="price-input"
+                placeholder="Input Price Here..." required>
+            <input type="text" class="form-control form-control-lg" id="description-input"
+                placeholder="Input description Here..." required>
+            <input type="text" class="form-control form-control-lg" id="tags-input"
+                placeholder="Input Tags Here..." required>
+            <input type="text" class="form-control form-control-lg" id="expiry-input"
+                placeholder="Input Deal Expiry Date Here..." required>
+            <div class="upload-btn-wrapper fixed-bottom"> 
+                <button type="submit" class="btn btn-primary w-100">Add Post</button>
+            </div>
+        </form>
 
             <!-- Bottom Navigation Start -->
             <nav class="navbar fixed-bottom navbar-light bg-light">
