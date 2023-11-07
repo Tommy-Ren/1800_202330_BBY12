@@ -20,6 +20,7 @@
         </div>
 
         <!-- Display the captured photo -->
+        <!--
         <div class="upload">
             <div class="title">
               <div class="size">Uplaod Image</div>
@@ -32,19 +33,29 @@
               </div>
             </div>
         </div>
+        -->
 
         <!-- Input fields for the post details -->
+        <!--
         <form class= "mb-3" id="post-form">
             <input type="text" class="form-control form-control-lg" id="title-input"
-                placeholder="Input Title Here..." required>
+               placeholder="Input Title Here..." required>
             <input type="number" class="form-control form-control-lg" id="price-input"
-                placeholder="Input Price Here..." required>
+               placeholder="Input Price Here..." required>
             <input type="text" class="form-control form-control-lg" id="description-input"
                 placeholder="Input description Here..." required>
             <input type="text" class="form-control form-control-lg" id="tags-input"
                 placeholder="Input Tags Here..." required>
             <input type="text" class="form-control form-control-lg" id="expiry-input"
                 placeholder="Input Deal Expiry Date Here..." required>
+            <div class="upload-btn-wrapper fixed-bottom"> 
+                <button type="submit" class="btn btn-primary w-100">Add Post</button>
+            </div>
+        </form>
+        -->
+        <form class= "mb-3" id="post-form">
+            <input type="text" id="title-input" placeholder="Title" required />
+            <textarea id="description-input" placeholder="Description" required></textarea>
             <div class="upload-btn-wrapper fixed-bottom"> 
                 <button type="submit" class="btn btn-primary w-100">Add Post</button>
             </div>
