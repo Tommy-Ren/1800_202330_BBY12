@@ -71,10 +71,7 @@ function createPostCard(post) {
 
 function attachLikeButtonListener(likeButton, postId) {
   likeButton.addEventListener('click', function() {
-    // Reference to the Firestore document for the post
     const postRef = db.collection('Posts').doc(postId);
-
-    // Run a transaction to ensure that the like count is incremented atomically
     return db.runTransaction((transaction) => {
       return transaction.get(postRef).then((postDoc) => {
         if (!postDoc.exists) {
@@ -98,10 +95,7 @@ function attachLikeButtonListener(likeButton, postId) {
 
 function attachDislikeButtonListener(dislikeButton, postId) {
   dislikeButton.addEventListener('click', function() {
-    // Reference to the Firestore document for the post
     const postRef = db.collection('Posts').doc(postId);
-
-    // Run a transaction to ensure that the dislike count is incremented atomically
     return db.runTransaction((transaction) => {
       return transaction.get(postRef).then((postDoc) => {
         if (!postDoc.exists) {
