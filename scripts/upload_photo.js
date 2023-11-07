@@ -1,4 +1,4 @@
-function uploadPosts() {
+/*function uploadPosts() {
     //define a variable for the collection you want to create in Firestore to populate data
     var postsInfo = db.collection("posts");
 
@@ -56,3 +56,22 @@ function uploadPosts() {
 //       Dislike_Num: 0 
 //     });
 //   }
+*/
+function uploadImageAndGetURL(imageFile) {
+    const storageRef = firebase.storage().ref(`images/${imageFile.name}`);
+    const uploadTask = storageRef.put(imageFile);
+  
+    return uploadTask.then(() => storageRef.getDownloadURL());
+  }
+  
+  // Function to save the post data to Firestore
+  function savePostToFirestore(title, description, imageURL) {
+    return db.collection('Posts').add({
+      title,
+      description,
+      image: imageURL,
+      Like_Num: 0, 
+      Dislike_Num: 0 
+    });
+  }
+  

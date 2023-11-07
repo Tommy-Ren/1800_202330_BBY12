@@ -1,21 +1,4 @@
-function uploadImageAndGetURL(imageFile) {
-    const storageRef = firebase.storage().ref(`images/${imageFile.name}`);
-    const uploadTask = storageRef.put(imageFile);
-  
-    return uploadTask.then(() => storageRef.getDownloadURL());
-  }
-  
-  // Function to save the post data to Firestore
-  function savePostToFirestore(title, description, imageURL) {
-    return db.collection('Posts').add({
-      title,
-      description,
-      image: imageURL,
-      Like_Num: 0, 
-      Dislike_Num: 0 
-    });
-  }
-  
+
 // Function to create a post card
 function createPopularPostCard(post) {
     const postElement = document.createElement('div');
@@ -45,6 +28,115 @@ function createPopularPostCard(post) {
   
     return postElement;
   }
+
+function createPostCard(post) {
+  const postCard = document.createElement('div');
+  postCard.className = 'post-card';
+
+  const postImage = document.createElement('img');
+  postImage.className = 'post-image';
+  postImage.src = post.image; 
+  postImage.alt = 'Post Image';
+
+  const postContent = document.createElement('div');
+  postContent.className = 'post-content';
+
+  const postTitle = document.createElement('h2');
+  postTitle.className = 'post-title';
+  postTitle.textContent = post.title; 
+
+  const postDescription = document.createElement('p');
+  postDescription.className = 'post-description';
+  postDescription.textContent = post.description; 
+
+  const postActions = document.createElement('div');
+  postActions.className = 'post-actions';
+
+  const likeButton = document.createElement('button');
+  likeButton.className = 'like-button';
+  likeButton.textContent = `👍 ${post.Like_Num}`; 
+  attachLikeButtonListener(likeButton, post.id);
+
+  const dislikeButton = document.createElement('button');
+  dislikeButton.className = 'dislike-button';
+  dislikeButton.textContent = `👎 ${post.Dislike_Num}`; 
+  attachDislikeButtonListener(dislikeButton, post.id);
+  // Append everything to postCard
+  postActions.append(likeButton, dislikeButton);
+  postContent.append(postTitle, postDescription, postActions);
+  postCard.append(postImage, postContent);
+
+  return postCard;
+}
+
+function attachLikeButtonListener(likeButton, postId) {
+  likeButton.addEventListener('click', function() {
+    // Reference to the Firestore document for the post
+    const postRef = db.collection('Posts').doc(postId);
+
+    // Run a transaction to ensure that the like count is incremented atomically
+    return db.runTransaction((transaction) => {
+      return transaction.get(postRef).then((postDoc) => {
+        if (!postDoc.exists) {
+          throw "Document does not exist!";
+        }
+
+        // Compute the new like count
+        let newLikeCount = (postDoc.data().Like_Num || 0) + 1;
+
+        // Update the Firestore document
+        transaction.update(postRef, { Like_Num: newLikeCount });
+
+        // Update the button text
+        likeButton.textContent = `👍 ${newLikeCount}`;
+      });
+    }).catch((error) => {
+      console.error("Transaction failed: ", error);
+    });
+  });
+}
+
+function attachDislikeButtonListener(dislikeButton, postId) {
+  dislikeButton.addEventListener('click', function() {
+    // Reference to the Firestore document for the post
+    const postRef = db.collection('Posts').doc(postId);
+
+    // Run a transaction to ensure that the dislike count is incremented atomically
+    return db.runTransaction((transaction) => {
+      return transaction.get(postRef).then((postDoc) => {
+        if (!postDoc.exists) {
+          throw "Document does not exist!";
+        }
+
+        // Compute the new dislike count
+        let newDislikeCount = (postDoc.data().Dislike_Num || 0) + 1;
+
+        // Update the Firestore document
+        transaction.update(postRef, { Dislike_Num: newDislikeCount });
+
+        // Update the button text
+        dislikeButton.textContent = `👎 ${newDislikeCount}`;
+      });
+    }).catch((error) => {
+      console.error("Transaction failed: ", error);
+    });
+  });
+}
+
+function savePostToFirestore(title, description, imageURL) {
+  const postData = {
+    title,
+    description,
+    Like_Num: 0, 
+    Dislike_Num: 0 
+  };
+
+  if (imageURL) {  // Only add the image property if imageURL is not null
+    postData.image = imageURL;
+  }
+
+  return db.collection('Posts').add(postData);
+}
 
   // Function to render the popular posts
 function renderPopularPosts(posts) {
@@ -85,89 +177,6 @@ function renderPopularPosts(posts) {
     });
   }
   
-  // Call renderPosts to render posts when the page loads
-  document.addEventListener('DOMContentLoaded', renderPosts);
-function createPostCard(post) {
-  const postCard = document.createElement('div');
-  postCard.className = 'post-card';
-
-  const postImage = document.createElement('img');
-  postImage.className = 'post-image';
-  postImage.src = post.image; 
-  postImage.alt = 'Post Image';
-
-  const postContent = document.createElement('div');
-  postContent.className = 'post-content';
-
-  const postTitle = document.createElement('h2');
-  postTitle.className = 'post-title';
-  postTitle.textContent = post.title; 
-
-  const postDescription = document.createElement('p');
-  postDescription.className = 'post-description';
-  postDescription.textContent = post.description; 
-
-  const postActions = document.createElement('div');
-  postActions.className = 'post-actions';
-
-  const likeButton = document.createElement('button');
-  likeButton.className = 'like-button';
-  likeButton.textContent = `👍 ${post.Like_Num}`; 
-  attachLikeButtonListener(likeButton, post.id);
-
-  const dislikeButton = document.createElement('button');
-  dislikeButton.className = 'dislike-button';
-  dislikeButton.textContent = `👎 ${post.Dislike_Num}`; 
-
-  // Append everything to postCard
-  postActions.append(likeButton, dislikeButton);
-  postContent.append(postTitle, postDescription, postActions);
-  postCard.append(postImage, postContent);
-
-  return postCard;
-}
-
-function attachLikeButtonListener(likeButton, postId) {
-  likeButton.addEventListener('click', function() {
-    // Reference to the Firestore document for the post
-    const postRef = db.collection('Posts').doc(postId);
-
-    // Run a transaction to ensure that the like count is incremented atomically
-    return db.runTransaction((transaction) => {
-      return transaction.get(postRef).then((postDoc) => {
-        if (!postDoc.exists) {
-          throw "Document does not exist!";
-        }
-
-        // Compute the new like count
-        let newLikeCount = (postDoc.data().Like_Num || 0) + 1;
-
-        // Update the Firestore document
-        transaction.update(postRef, { Like_Num: newLikeCount });
-
-        // Update the button text
-        likeButton.textContent = `👍 ${newLikeCount}`;
-      });
-    }).catch((error) => {
-      console.error("Transaction failed: ", error);
-    });
-  });
-}
-
-// Function to fetch posts and render them
-function renderPosts() {
-  const postsContainer = document.getElementById('posts-container');
-
-  db.collection('Posts').get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const post = doc.data();
-      const postCard = createPostCard(post);
-      postsContainer.appendChild(postCard);
-    });
-  }).catch(error => {
-    console.error("Error fetching posts: ", error);
-  });
-}
 
 // Call renderPosts to render posts when the page loads
 document.addEventListener('DOMContentLoaded', renderPosts);
@@ -191,17 +200,3 @@ document.getElementById('post-form').addEventListener('submit', function(event) 
       console.error("Error adding post: ", error);
     });
 });
-function savePostToFirestore(title, description, imageURL) {
-  const postData = {
-    title,
-    description,
-    Like_Num: 0, 
-    Dislike_Num: 0 
-  };
-
-  if (imageURL) {  // Only add the image property if imageURL is not null
-    postData.image = imageURL;
-  }
-
-  return db.collection('Posts').add(postData);
-}
