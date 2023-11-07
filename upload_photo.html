@@ -44,16 +44,16 @@
             </div>
         </div> -->
 
-            <!-- Upload button fixed at the bottom above the navbar -->
-            <div class="upload-btn-wrapper fixed-bottom"> <!-- mb-5 to lift it above the navbar -->
-                <button onclick="savePostToFirestore()" type="button" class="btn btn-primary w-100">Upload Now</button>
-            </div>
+
 
             <!-- testing buttons -->
             <form id="post-form">
                 <input type="text" id="title-input" placeholder="Title" required />
                 <textarea id="description-input" placeholder="Description" required></textarea>
-                <button type="submit">Add Post</button>
+                <!-- Upload button fixed at the bottom above the navbar -->
+                <div class="upload-btn-wrapper fixed-bottom"> 
+                    <button type="submit" class="btn btn-primary w-100">Add Post</button>
+                </div>
             </form>
 
             <!-- Bottom Navigation Start -->
