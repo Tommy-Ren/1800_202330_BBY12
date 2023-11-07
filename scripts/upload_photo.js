@@ -74,4 +74,23 @@ function uploadImageAndGetURL(imageFile) {
       Dislike_Num: 0 
     });
   }
+  document.getElementById('post-form').addEventListener('submit', function(event) {
+    event.preventDefault();
   
+    // Get the title and description from the form
+    const title = document.getElementById('title-input').value;
+    const description = document.getElementById('description-input').value;
+  
+    // Save the post to Firestore without an image URL
+    savePostToFirestore(title, description, null)
+      .then(() => {
+        // Clear the form after saving
+        document.getElementById('post-form').reset();
+  
+        // Optionally re-render posts if needed
+        renderPosts();
+      })
+      .catch((error) => {
+        console.error("Error adding post: ", error);
+      });
+  });
