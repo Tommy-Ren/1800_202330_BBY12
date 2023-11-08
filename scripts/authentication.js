@@ -27,8 +27,8 @@ var uiConfig = {
                    name: user.displayName,                    //"users" collection
                    email: user.email,                         //with authenticated user's ID (user.uid)
                    favorites: []                              //array for user's favorite posts
-                   //country: "Canada",                      //optional default profile info      
-                   //school: "BCIT"                          //optional default profile info
+                   //location: "Canada",                      //optional default profile info      
+                   //time: "2023-11-01"                          //optional default profile info
             }).then(function () {
                    console.log("New user added to firestore");
                    window.location.assign("home_page.html");       //re-direct to home_page.html after signup
