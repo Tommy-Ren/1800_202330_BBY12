@@ -54,12 +54,12 @@ function createPostCard(post) {
 
   const likeButton = document.createElement('button');
   likeButton.className = 'like-button';
-  likeButton.textContent = `👍 ${post.Like_Num}`; 
+  likeButton.textContent = `👍 ${post.like_Num}`; 
   attachLikeButtonListener(likeButton, post.id);
 
   const dislikeButton = document.createElement('button');
   dislikeButton.className = 'dislike-button';
-  dislikeButton.textContent = `👎 ${post.Dislike_Num}`; 
+  dislikeButton.textContent = `👎 ${post.dislike_Num}`; 
   attachDislikeButtonListener(dislikeButton, post.id);
   // Append everything to postCard
   postActions.append(likeButton, dislikeButton);
@@ -71,7 +71,7 @@ function createPostCard(post) {
 
 function attachLikeButtonListener(likeButton, postId) {
   likeButton.addEventListener('click', function() {
-    const postRef = db.collection('Posts').doc(postId);
+    const postRef = db.collection('posts').doc(postId);
     return db.runTransaction((transaction) => {
       return transaction.get(postRef).then((postDoc) => {
         if (!postDoc.exists) {
@@ -79,10 +79,10 @@ function attachLikeButtonListener(likeButton, postId) {
         }
 
         // Compute the new like count
-        let newLikeCount = (postDoc.data().Like_Num || 0) + 1;
+        let newLikeCount = (postDoc.data().like_Num || 0) + 1;
 
         // Update the Firestore document
-        transaction.update(postRef, { Like_Num: newLikeCount });
+        transaction.update(postRef, { like_Num: newLikeCount });
 
         // Update the button text
         likeButton.textContent = `👍 ${newLikeCount}`;
@@ -95,7 +95,7 @@ function attachLikeButtonListener(likeButton, postId) {
 
 function attachDislikeButtonListener(dislikeButton, postId) {
   dislikeButton.addEventListener('click', function() {
-    const postRef = db.collection('Posts').doc(postId);
+    const postRef = db.collection('posts').doc(postId);
     return db.runTransaction((transaction) => {
       return transaction.get(postRef).then((postDoc) => {
         if (!postDoc.exists) {
@@ -103,10 +103,10 @@ function attachDislikeButtonListener(dislikeButton, postId) {
         }
 
         // Compute the new dislike count
-        let newDislikeCount = (postDoc.data().Dislike_Num || 0) + 1;
+        let newDislikeCount = (postDoc.data().dislike_Num || 0) + 1;
 
         // Update the Firestore document
-        transaction.update(postRef, { Dislike_Num: newDislikeCount });
+        transaction.update(postRef, { dislike_Num: newDislikeCount });
 
         // Update the button text
         dislikeButton.textContent = `👎 ${newDislikeCount}`;
@@ -121,21 +121,21 @@ function savePostToFirestore(title, description, imageURL) {
   const postData = {
     title,
     description,
-    Like_Num: 0, 
-    Dislike_Num: 0 
+    like_Num: 0, 
+    dislike_Num: 0 
   };
 
   if (imageURL) {  // Only add the image property if imageURL is not null
     postData.image = imageURL;
   }
 
-  return db.collection('Posts').add(postData);
+  return db.collection('posts').add(postData);
 }
 
   // Function to render the popular posts
 function renderPopularPosts(posts) {
-    // Sort the posts by Like_Num in descending order
-    const sortedPosts = posts.sort((a, b) => b.Like_Num - a.Like_Num);
+    // Sort the posts by like_Num in descending order
+    const sortedPosts = posts.sort((a, b) => b.like_Num - a.like_Num);
   
     // Select a number of top posts to be popular
     const popularPosts = sortedPosts.slice(0, 5); // Adjust the number as needed
@@ -158,7 +158,7 @@ function renderPopularPosts(posts) {
     const postsContainer = document.getElementById('posts-container');
     const allPosts = []; // Array to hold all posts for sorting later
   
-    db.collection('Posts').get().then((querySnapshot) => {
+    db.collection('posts').get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const post = { id: doc.id, ...doc.data() };
         const postCard = createPostCard(post);
