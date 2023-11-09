@@ -1,166 +1,154 @@
-/*function uploadPosts() {
-    //define a variable for the collection you want to create in Firestore to populate data
-    var postsInfo = db.collection("posts");
+var ImageFile;
+function listenFileSelect() {
+      // listen for file selection
+      var fileInput = document.getElementById("pic-input"); // pointer #1
+      const image = document.getElementById("pic-goes-here"); // pointer #2
 
-    hikesRef.add({
-        code: "BBY01",
-        name: "Burnaby Lake Park Trail", //replace with your own city?
-        city: "Burnaby",
-        province: "BC",
-        level: "easy",
-                details: "A lovely place for lunch walk",
-        length: 10,          //number value
-        hike_time: 60,       //number value
-        lat: 49.2467097082573,
-        lng: -122.9187029619698,
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
-    });
+			// When a change happens to the File Chooser Input
+      fileInput.addEventListener('change', function (e) {
+          ImageFile = e.target.files[0];   //Global variable
+          var blob = URL.createObjectURL(ImageFile);
+          image.src = blob; // Display this image
+      })
 }
 
+function savePost() {
+  alert ("SAVE POST is triggered");
+  firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+          // User is signed in.
+          // Do something for the user here. 
+          var title = document.getElementById("title-input").value;
+          var desc = document.getElementById("desc-input").value;
+          var price = document.getElementById("price-input").value;
+          var tag = document.getElementById("tag-input").value;
+          var date = document.getElementById("date-input").value;
+          db.collection("posts").add({
+              owner: user.uid,
+              title: title,
+              price: price,
+              tag: tag,
+              date: date,
+              description: desc,
+              like_Num: 0, 
+              dislike_Num: 0,
+              last_updated: firebase.firestore.FieldValue
+                  .serverTimestamp() //current system time
+          }).then(doc => {
+              console.log("1. Post document added!");
+              console.log(doc.id);
+              uploadPic(doc.id);
+          })
+      } else {
+          // No user is signed in.
+          console.log("Error, no user signed in");
+      }
+  });
+}
 
+//------------------------------------------------
+// So, a new post document has just been added
+// and it contains a bunch of fields.
+// We want to store the image associated with this post,
+// such that the image name is the postid (guaranteed unique).
+// 
+// This function is called AFTER the post has been created, 
+// and we know the post's document id.
+//------------------------------------------------
+function uploadPic(postDocID) {
+  console.log("inside uploadPic " + postDocID);
+  var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
+  storageRef.put(ImageFile)   //global variable ImageFile
+ 
+       // AFTER .put() is done
+      .then(function () {
+          console.log('2. Uploaded to Cloud Storage.');
+          storageRef.getDownloadURL()
 
+               // AFTER .getDownloadURL is done
+              .then(function (url) { // Get URL of the uploaded file
+                  console.log("3. Got the download URL.");
 
-// function savePostToFirestore(title, price, location, tag, Like_Num, Dislike_Num, imageURL) {
-//     const postData = {
-//       title,
-//       price,
-//       location,
-//       tag,
-//       Like_Num: 0, 
-//       Dislike_Num: 0 
-//     };
-  
-//     if (imageURL) {  // Only add the image property if imageURL is not null
-//       postData.image = imageURL;
-//     }
-  
-//     return db.collection('Posts').add(postData);
-//   }
+                  // Now that the image is on Storage, we can go back to the
+                  // post document, and update it with an "image" field
+                  // that contains the url of where the picture is stored.
+                  db.collection("posts").doc(postDocID).update({
+                          "image": url // Save the URL into users collection
+                      })
+                       // AFTER .update is done
+                      .then(function () {
+                          console.log('4. Added pic URL to Firestore.');
+                          // One last thing to do:
+                          // save this postID into an array for the OWNER
+                          // so we can show "my posts" in the future
+                          savePostIDforUser(postDocID);
+                      })
+              })
+      })
+      .catch((error) => {
+           console.log("error uploading to cloud storage");
+      })
+}
 
-  
+//--------------------------------------------
+//saves the post ID for the user, in an array
+//--------------------------------------------
+function savePostIDforUser(postDocID) {
+  firebase.auth().onAuthStateChanged(user => {
+        console.log("user id is: " + user.uid);
+        console.log("postdoc id is: " + postDocID);
+        db.collection("users").doc(user.uid).update({
+              myposts: firebase.firestore.FieldValue.arrayUnion(postDocID)
+        })
+        .then(() =>{
+              console.log("5. Saved to user's document!");
+              alert ("Post is complete!");
+              //window.location.href = "showposts.html";
+         })
+         .catch((error) => {
+              console.error("Error writing document: ", error);
+         });
+  })
+}
+
 // function uploadImageAndGetURL(imageFile) {
-//     const storageRef = firebase.storage().ref(`images/${imageFile.name}`);
-//     const uploadTask = storageRef.put(imageFile);
-  
-//     return uploadTask.then(() => storageRef.getDownloadURL());
-//   }
-  
-//   // Function to save the post data to Firestore
-//   function savePostToFirestore(title, description, imageURL) {
-//     return db.collection('Posts').add({
-//       title,
-//       description,
-//       image: imageURL,
-//       Like_Num: 0, 
-//       Dislike_Num: 0 
+//   const storageRef = firebase.storage().ref(`images/${imageFile.name}`);
+//   const uploadTask = storageRef.put(imageFile);
+
+//   return uploadTask.then(() => storageRef.getDownloadURL());
+// }
+
+// // Function to save the post data to Firestore
+// function savePostToFirestore(title, description, imageURL) {
+//   return db.collection('Posts').add({
+//     title,
+//     description,
+//     image: imageURL,
+//     Like_Num: 0, 
+//     Dislike_Num: 0 
+//   });
+// }
+
+// document.getElementById('post-form').addEventListener('submit', function(event) {
+//   event.preventDefault();
+
+//   // Get the title and description from the form
+//   const title = document.getElementById('title-input').value;
+//   const description = document.getElementById('description-input').value;
+
+//   // Save the post to Firestore without an image URL
+//   savePostToFirestore(title, description, null)
+//     .then(() => {
+//       // Clear the form after saving
+//       document.getElementById('post-form').reset();
+
+//       // Optionally re-render posts if needed
+//       renderPosts();
+//     })
+//     .catch((error) => {
+//       console.error("Error adding post: ", error);
 //     });
-//   }
-*/
+// });
 
-
-
-// Now you can use ref, uploadBytes, getDownloadURL
-
-  /*document.getElementById('post-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-  
-    // Get the title, description, and image file from the form
-    const title = document.getElementById('title-input').value;
-    const description = document.getElementById('description-input').value;
-    const imageFile = document.getElementById('image-input').files[0]; // This is the image file
-  
-    // Check if an image was selected
-    if (imageFile) {
-      // First upload the image
-      uploadImageAndGetURL(imageFile).then((imageURL) => {
-        // Then save the post with the image URL
-        savePostToFirestore(title, description, imageURL).then(() => {
-          // Clear the form after saving
-          document.getElementById('post-form').reset();
-  
-          // Optionally re-render posts if needed
-          renderPosts();
-        });
-      }).catch((error) => {
-        console.error("Error uploading image or adding post: ", error);
-      });
-    } else {
-      // Save the post without an image URL if no image was selected
-      savePostToFirestore(title, description, null).then(() => {
-        // Clear the form after saving
-        document.getElementById('post-form').reset();
-  
-        // Optionally re-render posts if needed
-        renderPosts();
-      }).catch((error) => {
-        console.error("Error adding post: ", error);
-      });
-    }
-  });
-  function uploadImageAndGetURL(imageFile) {
-    // Assume 'firebase' is already initialized and 'storage' is firebase.storage()
-    var storageRef = firebase.storage().ref('images/' + imageFile.name);
-
-    // Upload the file to the path 'images/' in your Firebase Storage
-    return storageRef.put(imageFile).then(function(snapshot) {
-        // After the file is uploaded, get the download URL
-        return storageRef.getDownloadURL().then(function(downloadURL) {
-            console.log('File available at', downloadURL); // Log the URL
-            return downloadURL; // This URL is what you will save to Firestore
-        });
-    }).catch(function(error) {
-        // Handle any errors here
-        console.error("Error uploading file: ", error);
-        return null; // Return null if there's an error
-    });
-}
-  // Function to save the post data to Firestore
-  function savePostToFirestore(title, description, imageURL) {
-    return db.collection('Posts').add({
-      title,
-      description,
-      image: imageURL,
-      Like_Num: 0, 
-      Dislike_Num: 0 
-    });
-  }
-*/
-function uploadImageAndGetURL(imageFile) {
-  const storageRef = firebase.storage().ref(`images/${imageFile.name}`);
-  const uploadTask = storageRef.put(imageFile);
-
-  return uploadTask.then(() => storageRef.getDownloadURL());
-}
-
-// Function to save the post data to Firestore
-function savePostToFirestore(title, description, imageURL) {
-  return db.collection('Posts').add({
-    title,
-    description,
-    image: imageURL,
-    Like_Num: 0, 
-    Dislike_Num: 0 
-  });
-}
-
-document.getElementById('post-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  // Get the title and description from the form
-  const title = document.getElementById('title-input').value;
-  const description = document.getElementById('description-input').value;
-
-  // Save the post to Firestore without an image URL
-  savePostToFirestore(title, description, null)
-    .then(() => {
-      // Clear the form after saving
-      document.getElementById('post-form').reset();
-
-      // Optionally re-render posts if needed
-      renderPosts();
-    })
-    .catch((error) => {
-      console.error("Error adding post: ", error);
-    });
-});
+listenFileSelect();
