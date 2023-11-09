@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <title>My BCIT Project - Index</title>
         <meta name="comp1800 template" content="My 1800 App">
@@ -9,34 +8,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap Library CSS CDN go here -->
+        <!------------------------------------------>
+        <!-- Bootstrap Library CSS JS CDN go here -->
+        <!------------------------------------------>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-        <!-- Boostrap Library JS CDN  go here -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-
-
-
-        <!-- Other libraries go here -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
-        <link type="text/css" rel="stylesheet"
-            href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-        <link type="text/css" rel="stylesheet"
-            href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-
-
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+        <!-- Bootstrap Library CSS CDN go here -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Link to styles of your own -->
         <link href="styles/style.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="./styles/style.css">
 
     </head>
 
@@ -46,53 +27,29 @@
         <!-- Your HTML Layout go here -->
         <!------------------------------>
         <!-- Stuff for body goes here -->
-        <div class="container-fluid">
-            <div class="image-container">
-                <img src="images/Savebites.JPG" class="logo">
-            </div>
-            <div class="welcome-section">
-                <h1>Welcome to Savebites!</h1>
-            </div>
-
-            <!-- Buttons for Login Pages Start -->
-
-            <div class="container">
-                <h1>Login or Register Here</h1>
-            </div>
+        <div class="container border text-center">
+            <img src="images/Savebites.JPG" class="logo">
+            <h1 class="mb-3">Login / Register Here!</h1>
             <div id="firebaseui-auth-container"></div>
             <div id="loader">Loading...</div>
-
-
-            <!-- <div class="d-grid gap-2 col-4 mx-auto">
-                <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-envelope"></i>&nbsp;Login with
-                        Email</button></a>
-                <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-google"></i>&nbsp;Login with
-                        Google</button></a>
-                <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-apple"></i>&nbsp;Login with
-                        Apple</button></a>
-                <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-facebook"></i>&nbsp;Login with
-                        Facebook</button></a>
-                <a href="home_page.html"><button class=" btn btn-primary" type="button"><i class="bi bi-twitter"></i>&nbsp;Login with
-                        Twitter</button></a>
-            </div> -->
-            
-            <!-- <a href="sign_up.html">
-                <div id="registerLink"><i>Not yet a member? Register here</i></div>
-            </a> -->
         </div>
 
 
 
-        <!---------------------------------------------->
-        <!-- Your own JavaScript functions go here    -->
-        <!---------------------------------------------->
+        <!-- Your Custom Firebase Initializer Script -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+        <!-- Load Firebase UI Stylesheet -->
+        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
 
         <!-- Link to scripts of your own -->
         <script src="./scripts/firebaseAPI_BBY12.js"></script>
         <script src="./scripts/authentication.js"></script>
-        <script src="./scripts/script.js"></script>
-        <script src="./scripts/skeleton.js"></script>
-
+        <!-- <script src="./scripts/skeleton.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </body>
 
 </html>
