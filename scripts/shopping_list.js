@@ -64,7 +64,7 @@ function createPostCard(post) {
 
   const favoriteButton = document.createElement('button');
   favoriteButton.className = 'favorite-button';
-  favoriteButton.textContent = `👎 ${user.favorites}`; 
+  favoriteButton.textContent = `👍 ${post.favorites}`; 
   attachFavoriteButtonListener(favoriteButton, post.id);
 
   // Append everything to postCard
