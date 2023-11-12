@@ -123,23 +123,24 @@ function attachDislikeButtonListener(dislikeButton, postId) {
   });
 }
 
-function attachFavoriteButtonListener(favoriteButton, favorites) {
+function attachFavoriteButtonListener(favoriteButton, postId) {
     favoriteButton.addEventListener('click', function() {
       const userFav = db.collection('users').doc(favorites);
+      const postRef = db.collection('posts').doc(postId);
       return db.runTransaction((transaction) => {
-        return transaction.get(userFav).then((postDoc) => {
+        return transaction.get(postRef).then((postDoc) => {
           if (!postDoc.exists) {
             throw "Document does not exist!";
           }
   
-          // Compute the new dislike count
+          // add to user favorites
           let newFavorite = (postDoc.data().favorites);
   
           // Update the Firestore document
-          transaction.update(postRef, { dislike_Num: newDislikeCount });
+          //transaction.update(userFav, { favorites: postRef });
   
           // Update the button text
-          dislikeButton.textContent = `👎 ${newDislikeCount}`;
+          favoriteButton.textContent = `👍 ${favorites}`;
         });
       }).catch((error) => {
         console.error("Transaction failed: ", error);
@@ -162,44 +163,14 @@ function savePostToFirestore(title, description, imageURL) {
   return db.collection('posts').add(postData);
 }
 
-  // Function to render the popular posts
-function renderPopularPosts(posts) {
-    // Sort the posts by like_Num in descending order
-    const sortedPosts = posts.sort((a, b) => b.like_Num - a.like_Num);
+// function saveUserFavoriteToFirestore(favorites) {
+//     const postRef = db.collection('posts').doc(postId);
+//     const userFav = {
+//       favorites: postRef
+//     };
   
-    // Select a number of top posts to be popular
-    const popularPosts = sortedPosts.slice(0, 5); // Adjust the number as needed
-  
-    // Get the container for popular posts
-    const popularPostsContainer = document.querySelector('.popular-posts-container');
-  
-    // Clear out any existing content
-    popularPostsContainer.innerHTML = '';
-  
-    // Add the popular posts to the container
-    popularPosts.forEach(post => {
-      const postCard = createPopularPostCard(post);
-      popularPostsContainer.appendChild(postCard);
-    });
-  }
-  
-  // Modified renderPosts to also render popular posts
-  function renderPosts() {
-    const postsContainer = document.getElementById('posts-container');
-    const allPosts = []; // Array to hold all posts for sorting later
-  
-    db.collection('posts').get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const post = { id: doc.id, ...doc.data() };
-        const postCard = createPostCard(post);
-        postsContainer.appendChild(postCard);
-        allPosts.push(post); // Push the post to the array
-      });
-      renderPopularPosts(allPosts); // Render the popular posts after all posts have been processed
-    }).catch(error => {
-      console.error("Error fetching posts: ", error);
-    });
-  }
+//     return db.collection('users').add();
+//   }
   
 
 // Call renderPosts to render posts when the page loads
