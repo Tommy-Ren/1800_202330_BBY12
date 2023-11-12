@@ -37,12 +37,18 @@
             <!-- back button -->
             <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark" style="margin-right: 10px;">Back</button></a>
             
-			<div class="input-group mb-3">
+            <input type="text" id="searchInput" placeholder="Enter search query">
+            <button onclick="search()">Search</button>
+            <div id="searchResults"></div>
+            
+
+
+			<!-- <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Ground Beef" aria-label="Beef" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button">Search</button>
                 </div>
-            </div>
+            </div> -->
 
             <section id="recent">
                 <b>Recent Search</b>
@@ -152,7 +158,23 @@
         <!---------------------------------------------->
 
         <!-- Link to scripts of your own -->
-        <!-- <script src="./scripts/skeleton.js"></script> -->
+
+        <!-- Your Custom Firebase Initializer Script -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+        <!-- Load Firebase UI Stylesheet -->
+        <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+        
+        <!-- Link to scripts of your own -->
+        <script src="./scripts/search_page.js"></script>
+        <script src="./scripts/firebaseAPI_BBY12.js"></script>
+        
+
+        <!-- Load jQuery if necessary -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     </body>
 
