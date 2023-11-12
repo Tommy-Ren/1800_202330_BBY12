@@ -62,13 +62,13 @@ function createPostCard(post) {
   dislikeButton.textContent = `👎 ${post.dislike_Num}`; 
   attachDislikeButtonListener(dislikeButton, post.id);
 
-  const favoriteButton = document.createElement('button');
-  favoriteButton.className = 'favorite-button';
-  favoriteButton.textContent = `👍 ${post.favorites}`; 
-  attachFavoriteButtonListener(favoriteButton, post.id);
+//   const favoriteButton = document.createElement('button');
+//   favoriteButton.className = 'favorite-button';
+//   favoriteButton.textContent = `👍 ${post.favorites}`; 
+//   attachFavoriteButtonListener(favoriteButton, post.id);
 
   // Append everything to postCard
-  postActions.append(likeButton, dislikeButton, favoriteButton);
+  postActions.append(likeButton, dislikeButton); //removed favoriteButton for now
   postContent.append(postTitle, postDescription, postActions);
   postCard.append(postImage, postContent);
 
@@ -123,30 +123,30 @@ function attachDislikeButtonListener(dislikeButton, postId) {
   });
 }
 
-function attachFavoriteButtonListener(favoriteButton, postId) {
-    favoriteButton.addEventListener('click', function() {
-      const userFav = db.collection('users').doc(favorites);
-      const postRef = db.collection('posts').doc(postId);
-      return db.runTransaction((transaction) => {
-        return transaction.get(postRef).then((postDoc) => {
-          if (!postDoc.exists) {
-            throw "Document does not exist!";
-          }
+// function attachFavoriteButtonListener(favoriteButton, postId) {
+//     favoriteButton.addEventListener('click', function() {
+//       const userFav = db.collection('users').doc(favorites);
+//       const postRef = db.collection('posts').doc(postId);
+//       return db.runTransaction((transaction) => {
+//         return transaction.get(postRef).then((postDoc) => {
+//           if (!postDoc.exists) {
+//             throw "Document does not exist!";
+//           }
   
-          // add to user favorites
-          let newFavorite = (postDoc.data().favorites);
+//           // add to user favorites
+//           let newFavorite = (postDoc.data().favorites);
   
-          // Update the Firestore document
-          //transaction.update(userFav, { favorites: postRef });
+//           // Update the Firestore document
+//           //transaction.update(userFav, { favorites: postRef });
   
-          // Update the button text
-          favoriteButton.textContent = `👍 ${favorites}`;
-        });
-      }).catch((error) => {
-        console.error("Transaction failed: ", error);
-      });
-    });
-  }
+//           // Update the button text
+//           favoriteButton.textContent = `👍 ${favorites}`;
+//         });
+//       }).catch((error) => {
+//         console.error("Transaction failed: ", error);
+//       });
+//     });
+//   }
 
 function savePostToFirestore(title, description, imageURL) {
   const postData = {
