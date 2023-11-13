@@ -76,92 +76,103 @@
 
 /************************ Home Page  ***************************/
 .post-card {
-    display: flex;
-    align-items: stretch;
-    border: 2px solid #ccc;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;  
-    width: 100%;  
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  border: 2px solid #ccc;
+  padding: 16px; 
+  border-radius: 10px;
+  margin-bottom: 16px; 
+  width: 100%; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
 }
 
 .post-image {
-    width: 60px;  
-    height: 60px; 
-    border-radius: 15%;  
-    object-fit: cover;  
-    margin-right: 10px;  
+  width: 100%; 
+  height: 200px; 
+  border-radius: 10px; 
+  object-fit: cover; 
+  margin-bottom: 10px; 
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; 
+}
+
+.post-title {
+  font-size: 1.25rem; 
+  font-weight: bold; 
+  margin-bottom: 0.5rem; 
+}
+
+.post-description {
+  font-size: 1rem; 
+  color: #333; 
+  margin-bottom: 1rem; 
+}
+
+.post-tags, .post-price, .post-expiration {
+  font-size: 0.9rem; 
+  color: #555; 
+  margin-bottom: 0.25rem; 
 }
 
 .post-actions {
-    display: flex;
-    align-items: center;
-    gap: 5px; 
+  display: flex;
+  align-items: center;
+  gap: 10px; 
 }
 
 .like-button, .dislike-button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
+  background: none;
+  border: 1px solid #ddd; 
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
 }
 
-.popular {
-    border: 2px solid #ccc;
-    padding: 10px;
-    border-radius: 15px;
-    margin-bottom: 10px;  
-    width: 100%;  
-}
 
-.card-img-top {
-	border-radius: 15px;
-}
 .popular-posts-container {
-	white-space: nowrap;
-	overflow-x: auto;
-	padding-bottom: 10px;
-  }
-  
-  .popular-post {
-	display: inline-flex;
-	flex-direction: column;
-	width: 300px; 
-	margin: 10px; 
-	border-radius: 15px;
-	box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional shadow for better separation */
-  }
-  
-  .popular-post img {
-	width: 100%;
-	height: auto; /* Maintain aspect ratio */
-  }
-  
-  .popular-post .card-body {
-	padding: 15px;
-  }
-  
-  .card-title {
-	margin-bottom: 0.75rem;
-  }
-  
-  .card-text {
-	white-space: normal;
-  }
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.popular-post {
+  flex: 0 0 auto; /* This prevents the items from shrinking */
+  width: 400px; 
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popular-post img {
+  width: 100%;
+  border-radius: 15px; 
+}
+
+.popular-post .card-body {
+  padding: 15px;
+}
+
+.card-text {
+  white-space: normal; 
+}
 
   /************************ Map  ***************************/
 
   #map {
-    height: 700px; /* or any other height */
-    width: 100%; /* or any specific width */
+    height: 700px; 
+    width: 100%;
   }
 
   .controls {
-    position: end; /* For example, to place it at the top-left corner of the page */
+    position: end; 
     top: 10px;
     left: 10px;
-    z-index: 10; /* Make sure it's above the map */
+    z-index: 10; 
   }
 /************************ Photo Page ***************************/
 
