@@ -1,122 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-    <head>
-        <title>My BCIT Project</title>
-        <meta name="comp1800 template" content="My 1800 App">
+  <head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap Library CSS CDN go here -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-        <!-- Boostrap Library JS CDN  go here -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
-        <!-- Other libraries go here -->
+    <!-- Other libraries go here -->
 
-        <!-- Link to styles of your own -->
-        <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <!-- Link to styles of your own -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
 
-        <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-        <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="./styles/style.css">
 
-    </head>
-
+</head>
     <body>
-      
-        <section style="background-color: #f4f5f7;">
-            <div class="container-fluid py-5 h-100">
+      <div class="container-fluid border">
+        <br><br>
+        <!-- Back button Start -->
+        <div class="row">
+          <div class="ps-3 fs-1 mb-3">
+            <button type="button" class="btn btn-outline-dark" onclick="javascript:history.back()">
+              <i class="bi bi-arrow-left"></i> Back
+            </button>
+          </div>
+        </div>
+        <!-- Back button End -->
 
-                          <!-- back button -->
-            <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark" style="margin-right: 10px;">Back</button></a>
+        <!-- User Profile Container -->
+        <div class="info"> 
+          <!-- User Profile Start -->
+          <span><b>User Profile</b></span> 
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+            <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+          </div>
+        </div> 
+        <fieldset class="mb-3" id="personalInfoFields" disabled>
+          <div class="forms"> 
+            <div class="inputs"> 
+              <span>Name</span> 
+              <input type="text" id="nameInput" placeholder="Your name">
+            </div> 
+            <div class="inputs"> 
+              <span>Email</span> 
+              <input type="email" id="emailInput" placeholder="Your Email">
+            </div> 
+            <div class="inputs"> 
+              <span>Password</span> 
+              <input type="password" id="passwordInput" placeholder="Your password">
+            </div> 
+            <div class="inputs"> 
+              <span>Country</span> 
+              <input type="text" id="cityInput" placeholder="Your area">
+            </div> 
+          </div> 
+        </fieldset>
 
-              <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-lg-6 mb-4 mb-lg-0">
-                  <div class="card mb-3" style="border-radius: .5rem;">
-                    <div class="row g-0">
-                      <div class="col-md-4 gradient-custom text-center text-white"
-                        style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                          alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                        <h5>Marie Horwitz</h5>
-                        <p>Web Designer</p>
-                        <i class="far fa-edit mb-5"></i>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body p-4">
-                          <h6>Information</h6>
-                          <hr class="mt-0 mb-4">
-                          <div class="row pt-1">
-                            <div class="col-6 mb-3">
-                              <h6>Email</h6>
-                              <p class="text-muted">info@example.com</p>
-                            </div>
-                            <div class="col-6 mb-3">
-                              <h6>Phone</h6>
-                              <p class="text-muted">123 456 789</p>
-                            </div>
-                          </div>
-                          <h6>Projects</h6>
-                          <hr class="mt-0 mb-4">
-                          <div class="row pt-1">
-                            <div class="col-6 mb-3">
-                              <h6>Recent</h6>
-                              <p class="text-muted">Lorem ipsum</p>
-                            </div>
-                            <div class="col-6 mb-3">
-                              <h6>Most Viewed</h6>
-                              <p class="text-muted">Dolor sit amet</p>
-                            </div>
-                          </div>
-                          <div class="d-flex justify-content-start">
-                            <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                            <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                            <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Log Out</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </section>
-        <br>
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="menu-button btn btn-primary active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
+          <a class="menu-button btn btn-primary" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
+          <a class="menu-button btn btn-primary" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+          <a class="menu-button btn btn-primary" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Log Out</a>
+        </div>
+        <br><br><br>
+      </div>
         
 
-        <!-- Bottom Navigation Start -->
-        <nav class="navbar fixed-bottom navbar-light bg-light">
-            <div class="mobile-nav">
-                <a href="home_page.html" class="nav-icon">
-                    <img src="images/house-door.svg" alt="">
-                </a>
-                <a href="search_page.html" class="nav-icon">
-                    <img src="images/search.svg" alt="">
-                </a>
-                <a href="upload_photo.html" class="nav-icon">
-                    <img src="images/plus-circle.svg" alt="">
-                </a>
-                <a href="shopping_list.html" class="nav-icon">
-                    <img src="images/cart2.svg" alt="">
-                </a>
-                <a href="setting_page.html" class="nav-icon">
-                    <img src="images/gear-fill.svg" alt="">
-                </a>
-            </div>
-        </nav>
-        <!-- Bottom Navigation End -->
+      <!-- Bottom Navigation Start -->
+      <nav class="navbar fixed-bottom navbar-light bg-light">
+        <div class="mobile-nav">
+            <a href="home_page.html" class="nav-icon">
+                <img src="images/house-door.svg" alt="">
+            </a>
+            <a href="search_page.html" class="nav-icon">
+                <img src="images/search.svg" alt="">
+            </a>
+            <a href="upload_photo.html" class="nav-icon">
+                <img src="images/plus-circle.svg" alt="">
+            </a>
+            <a href="shopping_list.html" class="nav-icon">
+                <img src="images/cart2.svg" alt="">
+            </a>
+            <a href="setting_page.html" class="nav-icon">
+                <img src="images/gear-fill.svg" alt="">
+            </a>
+        </div>
+      </nav>
+      <!-- Bottom Navigation End -->
+      
+      <!-- Scripts -->
+      <!-- Load Firebase UI Stylesheet -->
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>  
 
+      <!-- Load jQuery if necessary -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+      <!-- Link to scripts of your own -->
+      <script src="./scripts/firebaseAPI_BBY12.js"></script>
+      <script src="./scripts/setting_page.js"></script>
+    </body>
 </html>
