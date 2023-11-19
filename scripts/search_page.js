@@ -13,7 +13,7 @@ function search() {
         querySnapshot.forEach((doc) => {
           // Display each result in the results container
           const resultDiv = document.createElement("div");
-          resultDiv.textContent = doc.data().title; // Replace fieldName with the actual field name in your document
+          resultDiv.textContent = doc.data().title; 
           resultsContainer.appendChild(resultDiv);
         });
       })
