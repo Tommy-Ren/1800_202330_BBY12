@@ -51,33 +51,39 @@
       </div>
       <fieldset class="mb-3" id="personalInfoFields" disabled>
         <div class="forms">
-          <div class="inputs">
+          <div class="inputs" disabled>
             <span>Name</span>
             <input type="text" id="nameInput" placeholder="Your name">
           </div>
-          <div class="inputs">
+          <div class="inputs" disabled>
             <span>Email</span>
             <input type="email" id="emailInput" placeholder="Your Email">
           </div>
           <div class="inputs">
-            <span>Password</span>
-            <input type="password" id="passwordInput" placeholder="Your password">
+            <span>Province</span>
+            <input type="text" id="provinceInput" placeholder="BC">
           </div>
           <div class="inputs">
-            <span>Country</span>
-            <input type="text" id="cityInput" placeholder="Your area">
+            <span>City</span>
+            <input type="text" id="cityInput" placeholder="Vancouver">
+          </div>
+          <div class="inputs">
+            <span>ZIP Code</span>
+            <input type="text" id="ZIPInput" placeholder="V5G 3H2">
+          </div>
+          <div class="inputs">
+            <span>Street Number</span>
+            <input type="text" id="StreetInput" placeholder="3700 Willingdon Ave">
           </div>
         </div>
       </fieldset>
 
       <div class="list-group" id="list-tab" role="tablist">
-        <a class="menu-button btn btn-primary active" id="list-profile-list" data-bs-toggle="list" href="#list-profile"
+        <a class="menu-button btn btn-primary active" id="profile" href="#"
           role="tab" aria-controls="list-profile">Profile</a>
-        <a class="menu-button btn btn-primary" id="list-messages-list" data-bs-toggle="list" href="#list-messages"
-          role="tab" aria-controls="list-messages">Messages</a>
-        <a class="menu-button btn btn-primary" id="list-settings-list" data-bs-toggle="list" href="#list-settings"
-          role="tab" aria-controls="list-settings">Settings</a>
-        <a class="menu-button btn btn-primary" id="list-settings-list" data-bs-toggle="list" href="#list-settings"
+        <a class="menu-button btn btn-primary" id="notification" href="#"
+          role="tab" aria-controls="list-settings">Notification</a>
+        <a class="menu-button btn btn-primary" id="logout" onclick="logOut()" href="#"
           role="tab" aria-controls="list-settings">Log Out</a>
       </div>
       <br><br><br>
