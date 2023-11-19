@@ -18,12 +18,12 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
 
-        <!-- Other libraries go here -->
+        <!-- Google Material Icon -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
 
         <!-- Link to styles of your own -->
         <link href="styles/style.css" rel="stylesheet" type="text/css">
-
-        <!-- <link rel="stylesheet" href="./styles/style.css"> -->
         <link rel="stylesheet" href="./styles/style.css">
 
     </head>
@@ -33,15 +33,27 @@
         <!------------------------------>
         <!-- Your HTML Layout go here -->
         <br><br><br>
-        <div class="location-container">
-            <span class="location-icon">📍</span>
-            <a href="map.html">Your Location</a>
-        </div>
-        <h1>Home Page</h1>
 
+        <div class="location-container">
+            <span class="material-symbols-outlined">
+                location_on 
+                </span> 
+                <a href="map.html">Your Location</a>
+        </div>
+
+        <div id="profileicon">
+            Home Feed
+            <a href="setting_page.html" class="nav-icon">
+                <span class="material-symbols-outlined">
+                    account_circle
+                    </span>
+            </a> 
+        </div>
         <!-- Popular Section -->
         <section class="mt-5 popular-section">
-            <h2 class="mb-4">Popular</h2>
+            <div id="poptitle" class="mb-4"><span class="material-symbols-outlined">
+                monitoring
+                </span>Popular</div>
             <div class="popular-posts-container d-flex">
                 <!-- Popular posts will be appended here by JavaScript -->
             </div>
@@ -50,7 +62,9 @@
 
         <!-- All Posts Section Start -->
         <section class="mt-5">
-            <h2 class="mb-4">All Posts</h2>
+            <div id="allsection" class="mb-4"><span class="material-symbols-outlined">
+                library_books
+                </span>All Posts</div>
             <div id="posts-container" class="container-fluid">
             <!-- All posts will be appended here by JavaScript -->
             </div>
@@ -62,20 +76,26 @@
         <nav class="navbar fixed-bottom navbar-light bg-light">
             <div class="mobile-nav">
                 <a href="home_page.html" class="nav-icon">
-                    <img src="images/house-door.svg" alt="">
+                    <span class="material-symbols-outlined">
+                        home
+                        </span>
                 </a>
-                <a href="search_page.html" class="nav-icon">
-                    <img src="images/search.svg" alt="">
-                </a>
+                <!-- <a href="search_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        search
+                        </span>
+                </a> -->
                 <a href="upload_photo.html" class="nav-icon">
-                    <img src="images/plus-circle.svg" alt="">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_up
+                        </span>
                 </a>
                 <a href="shopping_list.html" class="nav-icon">
-                    <img src="images/cart2.svg" alt="">
+                    <span class="material-symbols-outlined">
+                        heart_plus
+                        </span>
                 </a>
-                <a href="setting_page.html" class="nav-icon">
-                    <img src="images/gear-fill.svg" alt="">
-                </a>
+
                 </div>
         </nav>
         <!-- Bottom Navigation End -->

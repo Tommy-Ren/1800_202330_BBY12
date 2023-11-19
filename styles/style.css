@@ -1,74 +1,85 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Teko&display=swap');
+
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 @media only screen and (max-width : 430px) {
-	#cutout {
-		background-color: red;
-		padding: 20px;
-		align-items: center;
-	}
 
-	body {
-		font-family: 'Roboto', 'Montserrat', sans-serif;
-		font-size:100%;
-		margin: 0px;
-		padding: 0px;
-	}
-	
-	#registerLink {
-		background-color: black;
-		color: white;
-		text-align: center;
-	}
+
+
+  #cutout {
+    background-color: red;
+    padding: 20px;
+    align-items: center;
+  }
+
+  body {
+    font-family: 'Roboto', 'Montserrat', sans-serif;
+    font-size: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #cecece;
+  }
+
+  #registerLink {
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
 }
+
 @media screen and (min-width: 600px) {
-	.mobile-nav {
-		display: none;
-	}
+  .mobile-nav {
+    display: none;
+  }
 }
 
 /************************ Bottom Navigation Bar  ***************************/
 .mobile-nav {
-	background: #F1F1F1;
-	position: fixed;
-	bottom: 0;
-	height: 65px;
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
+  background: #F1F1F1;
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav-icon {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .nav-icon img {
-	width: 30px;
+  width: 30px;
 }
 
 /************************ Index Page  ***************************/
-.container-fluid{
+.container-fluid {
   min-height: 100vh;
   width: 100vw;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 }
+
 .logo {
   margin-top: 15vh;
   margin-bottom: 5vh;
-	max-width: 75%; 
-	height: auto;
-	filter: hue-rotate(0deg)
+  max-width: 75%;
+  height: auto;
+  filter: hue-rotate(0deg)
 }
-.welcome-section{
-  font-size: 50px; 
+
+.welcome-section {
+  font-size: 50px;
   margin-bottom: 15vh;
 }
-.text-bg-dark{
-	margin-top: 50px;
-	bottom: 30px;
+
+.text-bg-dark {
+  margin-top: 50px;
+  bottom: 30px;
 }
 
 .responsive {
@@ -77,67 +88,101 @@
 }
 
 /************************ Home Page  ***************************/
+
+#profileicon {
+  justify-content: space-between;
+  display: flex;
+  padding: 5%;
+  color: green;
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
+}
+
+#poptitle {
+  justify-content: center;
+  display: flex;
+  align-items: baseline;
+  padding: 5%;
+  color: green;
+  font-size: 36px;
+  font-family: 'Teko', sans-serif;
+}
+
+#allsection {
+  justify-content: center;
+  display: flex;
+  align-items: baseline;
+  padding: 5%;
+  color: green;
+  font-size: 36px;
+  font-family: 'Teko', sans-serif;
+}
+
 .post-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
+  align-items: flex-start;
   border: 2px solid #ccc;
-  padding: 16px; 
+  padding: 16px;
   border-radius: 10px;
-  margin-bottom: 16px; 
-  width: 100%; 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  margin-bottom: 16px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: rgb(115, 148, 82);
   color: #ddd;
 }
 
 .post-image {
-  width: 100%; 
-  height: 200px; 
-  border-radius: 10px; 
-  object-fit: cover; 
-  margin-bottom: 10px; 
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .post-content {
   display: flex;
   flex-direction: column;
-  gap: 4px; 
+  gap: 4px;
   color: white;
 }
 
 .post-title {
-  font-size: 1.25rem; 
-  font-weight: bold; 
-  margin-bottom: 0.5rem; 
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .post-description {
-  font-size: 1rem; 
-  color: #333333; 
-  margin-bottom: 1rem; 
+  font-size: 1rem;
+  color: #333333;
+  margin-bottom: 1rem;
   color: white;
 }
 
-.post-tags, .post-price, .post-expiration {
-  font-size: 0.9rem; 
-  color: #555; 
-  margin-bottom: 0.25rem; 
+.post-tags,
+.post-price,
+.post-expiration {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.25rem;
   color: white;
 }
 
 .post-actions {
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
-.like-button, .dislike-button, .favorite-button {
-  
-  border: 1px solid #ddd; 
-  padding: 5px 10px; 
-  border-radius: 5px; 
-  transition: background-color 0.3s; 
+.like-button,
+.dislike-button,
+.favorite-button {
+
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
   background: white;
 }
 
@@ -148,18 +193,19 @@
 }
 
 .popular-post {
-  flex: 0 0 auto; /* This prevents the items from shrinking */
-  width: 400px; 
+  flex: 0 0 auto;
+  /* This prevents the items from shrinking */
+  width: 400px;
   margin: 10px;
   border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background-color: orange;
 }
 
 .popular-post img {
   width: 100%;
   border-radius: 15px;
-  height: 200px; 
+  height: 200px;
 }
 
 .popular-post .card-body {
@@ -167,105 +213,113 @@
 }
 
 .card-text {
-  white-space: normal; 
+  white-space: normal;
 }
 
 /************************ Map  ***************************/
 
 #map {
-  height: 700px; 
+  height: 700px;
   width: 100%;
 }
 
 .controls {
-  position: end; 
+  position: end;
   top: 10px;
   left: 10px;
-  z-index: 10; 
+  z-index: 10;
 }
 
 /************************ Photo Page ***************************/
 
 .camera {
-	position: relative;
-	width: 100%;
-	height: 90%; 
+  position: relative;
+  width: 100%;
+  height: 90%;
 }
-  
+
 video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-  
-  
+
+
 #snap {
   width: 20%;
-  bottom: 5%; 
+  bottom: 5%;
 }
 
 /************************ Upload Page ***************************/
-.form-group{
+.form-group {
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-bottom: 0.5rem; 
+  padding-bottom: 0.5rem;
   font-size: 1.25rem;
 }
 
 /************************ Search Page  ***************************/
 
-.recent-search{
-	padding-top: 10px;
+.recent-search {
+  padding-top: 10px;
 }
 
 .tags-row {
-	padding-top: 10px;
+  padding-top: 10px;
 }
 
 .tag {
-	width: 32%;
-	height: 50px;
+  width: 32%;
+  height: 50px;
 }
+
 #tags {
-	padding-top: 20px;
+  padding-top: 20px;
 }
 
 /************************ Profile Page  ***************************/
 
-.info{
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  background-color:#e5e5e5;
+.info {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #e5e5e5;
 }
-.info span{
-  font-size:20px
+
+.info span {
+  font-size: 20px
 }
-.info button{
+
+.info button {
   margin-left: 10px;
-  border-radius:4px;
-  text-transform:uppercase;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
-.forms{
-  border:#000;
-  padding:20px
+
+.forms {
+  border: #000;
+  padding: 20px
 }
-.inputs{
-  display:flex;
-  flex-direction:column;
-  margin-bottom:10px
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px
 }
-.inputs span{
-  font-size:20px
+
+.inputs span {
+  font-size: 20px
 }
-.inputs input{
-  height:40px;
-  padding:0px 10px;
-  font-size:18px;
-  box-shadow:none;
-  outline:none
+
+.inputs input {
+  height: 40px;
+  padding: 0px 10px;
+  font-size: 18px;
+  box-shadow: none;
+  outline: none
 }
-.menu-button{
-  align-content:flex-end;
+
+.menu-button {
+  align-content: flex-end;
   margin-top: 10px;
 }

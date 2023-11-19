@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>My BCIT Project - Photo</title>
-    <meta name="comp1800 template" content="My 1800 App">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <!-- back button -->
-    <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark" style="margin-right: 10px;">Back</button></a>
 
-    <!-- Camera View -->
-    <div class="camera">
-        <video id="video" playsinline autoplay></video>
-    </div>
+    <head>
+        <title>My BCIT Project - Photo</title>
+        <meta name="comp1800 template" content="My 1800 App">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <!-- Google Material Icon -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    </head>
 
-    <!-- Capture Button -->
-    <button id="snap" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x">Take Photo</button>
+    <body>
+        <!-- back button -->
+        <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark"
+                style="margin-right: 10px;">Back</button></a>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./scripts/photo.js"></script>
-</body>
+        <!-- Camera View -->
+        <div class="camera">
+            <video id="video" playsinline autoplay></video>
+        </div>
+
+        <!-- Capture Button -->
+        <button id="snap" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x">Take
+            Photo</button>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./scripts/photo.js"></script>
+    </body>
+
 </html>
