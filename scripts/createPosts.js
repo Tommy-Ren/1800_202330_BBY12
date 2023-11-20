@@ -28,6 +28,7 @@ function createPopularPostCard(post) {
     return postElement;
 }
 function createPostCard(post) {
+  
   const postCard = document.createElement('div');
   postCard.className = 'post-card';
 
@@ -46,10 +47,11 @@ function createPostCard(post) {
   const postDescription = document.createElement('p');
   postDescription.className = 'post-description';
   postDescription.textContent = post.description;
+  postDescription.classList.add('hidden');
 
   const postTags = document.createElement('p');
   postTags.className = 'post-tags';
-  postTags.textContent = `Tag: ${post.tag || 'No tag'}`;
+  postTags.textContent = post.tag || 'No tag';
 
   const postPrice = document.createElement('p');
   postPrice.className = 'post-price';
@@ -58,6 +60,15 @@ function createPostCard(post) {
   const postExpiration = document.createElement('p');
   postExpiration.className = 'post-expiration';
   postExpiration.textContent = `Expires on: ${new Date(post.expirationDate).toLocaleDateString()}`;
+  postExpiration.classList.add('hidden');
+
+  const postStoreName = document.createElement('p');
+  postStoreName.className = 'post-store-name';
+  postStoreName.textContent = `Store: ${post.storeName}`;
+
+  const postStoreLocation = document.createElement('p');
+  postStoreLocation.className = 'post-store-location';
+  postStoreLocation.textContent = `Location: ${post.storeLocation}`;
 
   const postActions = document.createElement('div');
   postActions.className = 'post-actions';
@@ -77,9 +88,17 @@ function createPostCard(post) {
   favoriteButton.textContent = '⭐ Favorite';
   setupFavoriteButton(favoriteButton, post.id);
 
+  postContent.addEventListener('click', function() {
+    postDescription.classList.toggle('hidden');
+    postExpiration.classList.toggle('hidden');
+    postDescription.classList.toggle('show');
+    postExpiration.classList.toggle('show');
+  })
+
+
   // Append everything to postCard
   postActions.append(likeButton, dislikeButton, favoriteButton);
-  postContent.append(postTitle, postTags, postPrice, postExpiration, postDescription, postActions);
+  postContent.append(postTitle, postTags, postPrice, postExpiration, postDescription, postStoreName, postStoreLocation, postActions);
   postCard.append(postImage, postContent);
 
   return postCard;
@@ -180,7 +199,9 @@ function savePostToFirestore(title, description, imageURL, tag, price, expiratio
     dislike_Num: 0,
     tag: tag,
     price: price || 0.0, 
-    expirationDate: expirationDate || null 
+    expirationDate: expirationDate || null, 
+    StoreName: storeName || 'Unknown Store',
+    storeLocation: storeLocation || 'Unknown Location'
   };
 
   if (imageURL) {

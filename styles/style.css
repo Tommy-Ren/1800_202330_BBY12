@@ -160,7 +160,7 @@
   color: white;
 }
 
-.post-tags,
+.post-tags
 .post-price,
 .post-expiration {
   font-size: 0.9rem;
@@ -168,6 +168,8 @@
   margin-bottom: 0.25rem;
   color: white;
 }
+
+
 
 .post-actions {
   display: flex;
@@ -216,6 +218,13 @@
   white-space: normal;
 }
 
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
 /************************ Map  ***************************/
 
 #map {

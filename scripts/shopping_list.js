@@ -16,7 +16,7 @@ function renderFavoritePosts(userId) {
         const postRef = db.collection('posts').doc(postId);
         postRef.get().then((postDoc) => {
           if (postDoc.exists) {
-            const postCard = createPostCard(postDoc.data(), false);
+            const postCard = createPostCard(postDoc.data());
             favoritesContainer.appendChild(postCard);
           } else {
             console.log(`Post not found: ${postId}`);
