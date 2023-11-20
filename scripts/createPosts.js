@@ -79,16 +79,14 @@ function createPostCard(post) {
   likeButton.className = 'like-button';
   likeButton.textContent = `👍 ${post.like_Num}`;
   likeButton.addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevents the click event from bubbling up
-    // Add any additional functionality for likeButton here
+    event.stopPropagation();
   });
 
   const dislikeButton = document.createElement('button');
   dislikeButton.className = 'dislike-button';
   dislikeButton.textContent = `👎 ${post.dislike_Num}`;
   dislikeButton.addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevents the click event from bubbling up
-    // Add any additional functionality for dislikeButton here
+    event.stopPropagation(); 
   });
   setupLikeDislikeButtons(likeButton, dislikeButton, post.id);
 
@@ -97,8 +95,7 @@ function createPostCard(post) {
   favoriteButton.textContent = '⭐ Favorite';
   setupFavoriteButton(favoriteButton, post.id);
   favoriteButton.addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevents the click event from bubbling up
-    // Add any additional functionality for favoriteButton here
+    event.stopPropagation(); 
   });
 
   postContent.addEventListener('click', function() {
