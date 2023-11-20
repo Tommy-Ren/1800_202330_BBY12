@@ -1,52 +1,56 @@
 var ImageFile;
 function listenFileSelect() {
-      // listen for file selection
-      var fileInput = document.getElementById("pic-input"); // pointer #1
-      const image = document.getElementById("pic-goes-here"); // pointer #2
+  // listen for file selection
+  var fileInput = document.getElementById("pic-input"); // pointer #1
+  const image = document.getElementById("pic-goes-here"); // pointer #2
 
-			// When a change happens to the File Chooser Input
-      fileInput.addEventListener('change', function (e) {
-          ImageFile = e.target.files[0];   //Global variable
-          var blob = URL.createObjectURL(ImageFile);
-          image.src = blob; // Display this image
-      })
+  // When a change happens to the File Chooser Input
+  fileInput.addEventListener('change', function (e) {
+    ImageFile = e.target.files[0];   //Global variable
+    var blob = URL.createObjectURL(ImageFile);
+    image.src = blob; // Display this image
+  })
 }
 
 function savePost() {
-  alert ("SAVE POST is triggered");
+  alert("SAVE POST is triggered");
   firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-          // User is signed in.
-          // Do something for the user here. 
-          var title = document.getElementById("title-input").value;
-          var desc = document.getElementById("desc-input").value;
-          var price = parseFloat(document.getElementById("price-input").value);
-          var tag = document.getElementById("tag-input").value;
-          var date = document.getElementById("date-input").value;
-          if (isNaN(price)) {
-            console.log("Error: Price is not a number.");
-            return; // Exit the function if price is not a number
-        }
-          db.collection("posts").add({
-              owner: user.uid,
-              title: title,
-              price: price,
-              tag: tag,
-              date: date,
-              description: desc,
-              like_Num: 0, 
-              dislike_Num: 0,
-              last_updated: firebase.firestore.FieldValue
-                  .serverTimestamp() //current system time
-          }).then(doc => {
-              console.log("1. Post document added!");
-              console.log(doc.id);
-              uploadPic(doc.id);
-          })
-      } else {
-          // No user is signed in.
-          console.log("Error, no user signed in");
+    if (user) {
+      // User is signed in.
+      // Do something for the user here. 
+      var title = document.getElementById("title-input").value;
+      var desc = document.getElementById("desc-input").value;
+      var price = parseFloat(document.getElementById("price-input").value);
+      var tag = document.getElementById("tag-input").value;
+      var date = document.getElementById("date-input").value;
+      var store_Name = document.getElementById("store-name-input").value;
+      var store_Address = document.getElementById("store-address-input").value;
+      if (isNaN(price)) {
+        console.log("Error: Price is not a number.");
+        return; // Exit the function if price is not a number
       }
+      db.collection("posts").add({
+        owner: user.uid,
+        title: title,
+        description: desc,
+        price: price,
+        tag: tag,
+        date: date,
+        store_Name: store_Name,
+        store_Address: store_Address,
+        like_Num: 0,
+        dislike_Num: 0,
+        last_updated: firebase.firestore.FieldValue
+          .serverTimestamp() //current system time
+      }).then(doc => {
+        console.log("1. Post document added!");
+        console.log(doc.id);
+        uploadPic(doc.id);
+      })
+    } else {
+      // No user is signed in.
+      console.log("Error, no user signed in");
+    }
   });
 }
 
@@ -64,35 +68,35 @@ function uploadPic(postDocID) {
   var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
   storageRef.put(ImageFile)   //global variable ImageFile
- 
-       // AFTER .put() is done
-      .then(function () {
-          console.log('2. Uploaded to Cloud Storage.');
-          storageRef.getDownloadURL()
 
-               // AFTER .getDownloadURL is done
-              .then(function (url) { // Get URL of the uploaded file
-                  console.log("3. Got the download URL.");
+    // AFTER .put() is done
+    .then(function () {
+      console.log('2. Uploaded to Cloud Storage.');
+      storageRef.getDownloadURL()
 
-                  // Now that the image is on Storage, we can go back to the
-                  // post document, and update it with an "image" field
-                  // that contains the url of where the picture is stored.
-                  db.collection("posts").doc(postDocID).update({
-                          "image": url // Save the URL into users collection
-                      })
-                       // AFTER .update is done
-                      .then(function () {
-                          console.log('4. Added pic URL to Firestore.');
-                          // One last thing to do:
-                          // save this postID into an array for the OWNER
-                          // so we can show "my posts" in the future
-                          savePostIDforUser(postDocID);
-                      })
-              })
-      })
-      .catch((error) => {
-           console.log("error uploading to cloud storage");
-      })
+        // AFTER .getDownloadURL is done
+        .then(function (url) { // Get URL of the uploaded file
+          console.log("3. Got the download URL.");
+
+          // Now that the image is on Storage, we can go back to the
+          // post document, and update it with an "image" field
+          // that contains the url of where the picture is stored.
+          db.collection("posts").doc(postDocID).update({
+            "image": url // Save the URL into users collection
+          })
+            // AFTER .update is done
+            .then(function () {
+              console.log('4. Added pic URL to Firestore.');
+              // One last thing to do:
+              // save this postID into an array for the OWNER
+              // so we can show "my posts" in the future
+              savePostIDforUser(postDocID);
+            })
+        })
+    })
+    .catch((error) => {
+      console.log("error uploading to cloud storage");
+    })
 }
 
 //--------------------------------------------
@@ -100,59 +104,20 @@ function uploadPic(postDocID) {
 //--------------------------------------------
 function savePostIDforUser(postDocID) {
   firebase.auth().onAuthStateChanged(user => {
-        console.log("user id is: " + user.uid);
-        console.log("postdoc id is: " + postDocID);
-        db.collection("users").doc(user.uid).update({
-              myposts: firebase.firestore.FieldValue.arrayUnion(postDocID)
-        })
-        .then(() =>{
-              console.log("5. Saved to user's document!");
-              alert ("Post is complete!");
-              //window.location.href = "showposts.html";
-         })
-         .catch((error) => {
-              console.error("Error writing document: ", error);
-         });
+    console.log("user id is: " + user.uid);
+    console.log("postdoc id is: " + postDocID);
+    db.collection("users").doc(user.uid).update({
+      myposts: firebase.firestore.FieldValue.arrayUnion(postDocID)
+    })
+      .then(() => {
+        console.log("5. Saved to user's document!");
+        alert("Post is complete!");
+        //window.location.href = "showposts.html";
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
   })
 }
-
-// function uploadImageAndGetURL(imageFile) {
-//   const storageRef = firebase.storage().ref(`images/${imageFile.name}`);
-//   const uploadTask = storageRef.put(imageFile);
-
-//   return uploadTask.then(() => storageRef.getDownloadURL());
-// }
-
-// // Function to save the post data to Firestore
-// function savePostToFirestore(title, description, imageURL) {
-//   return db.collection('Posts').add({
-//     title,
-//     description,
-//     image: imageURL,
-//     Like_Num: 0, 
-//     Dislike_Num: 0 
-//   });
-// }
-
-// document.getElementById('post-form').addEventListener('submit', function(event) {
-//   event.preventDefault();
-
-//   // Get the title and description from the form
-//   const title = document.getElementById('title-input').value;
-//   const description = document.getElementById('description-input').value;
-
-//   // Save the post to Firestore without an image URL
-//   savePostToFirestore(title, description, null)
-//     .then(() => {
-//       // Clear the form after saving
-//       document.getElementById('post-form').reset();
-
-//       // Optionally re-render posts if needed
-//       renderPosts();
-//     })
-//     .catch((error) => {
-//       console.error("Error adding post: ", error);
-//     });
-// });
 
 listenFileSelect();

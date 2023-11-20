@@ -12,9 +12,9 @@ function populateUserInfo() {
                 var userName = userDoc.data().name;
                 var userEmail = userDoc.data().email;
                 var userCity = userDoc.data().city;
-                var userCity = userDoc.data().province;
-                var userCity = userDoc.data().zip;
-                var userCity = userDoc.data().street;
+                var userProvince = userDoc.data().province;
+                var userZIP = userDoc.data().zip;
+                var userStreet = userDoc.data().street;
 
                 //if the data fields are not empty, then write them in to the form.
                 if (userName != null) {
@@ -23,11 +23,17 @@ function populateUserInfo() {
                 if (userEmail != null) {
                     document.getElementById("emailInput").value = userEmail;
                 }
-                if (userPassword != null) {
-                    document.getElementById("passwordInput").value = userPassword;
+                if (userProvince != null) {
+                    document.getElementById("provinceInput").value = userProvince;
                 }
                 if (userCity != null) {
                     document.getElementById("cityInput").value = userCity;
+                }
+                if (userZIP != null) {
+                    document.getElementById("ZIPInput").value = userZIP;
+                }
+                if (userStreet != null) {
+                    document.getElementById("StreetInput").value = userStreet;
                 }
             })
         } else {
@@ -39,7 +45,10 @@ function populateUserInfo() {
 
 function editUserInfo() {
     //Enable the form fields
-    document.getElementById('personalInfoFields').disabled = false;
+    document.getElementById('provinceInput').disabled = false;
+    document.getElementById('cityInput').disabled = false;
+    document.getElementById('ZIPInput').disabled = false;
+    document.getElementById('StreetInput').disabled = false;
 }
 
 function saveUserInfo() {
@@ -49,9 +58,7 @@ function saveUserInfo() {
     userZIP = document.getElementById('ZIPInput').value;
     userStreet = document.getElementById('StreetInput').value;
 
-    //b) update user's document in Firestore
-    auth.updateEmail(userEmail);
-    auth.updatePassword(userPassword);
+    //b) update user's information in Firestore
     currentUser.update({
         city: userCity,
         province: userProvince,
@@ -70,14 +77,12 @@ function logOut() {
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
         console.log("Log out successfully!");
-        window.location.assign("index.html"); 
+        window.location.assign("index.html");
     }).catch((error) => {
         // An error happened.
         console.log("Error adding new user: " + error);
     });
 }
-
-
 
 //call the function to run it 
 populateUserInfo();
