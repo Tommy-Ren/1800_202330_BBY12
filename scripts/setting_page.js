@@ -70,7 +70,10 @@ function saveUserInfo() {
         })
 
     //c) disable edit 
-    document.getElementById('personalInfoFields').disabled = true;
+    document.getElementById('provinceInput').disabled = true;
+    document.getElementById('cityInput').disabled = true;
+    document.getElementById('ZIPInput').disabled = true;
+    document.getElementById('StreetInput').disabled = true;
 }
 
 function logOut() {
