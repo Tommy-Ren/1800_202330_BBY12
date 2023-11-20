@@ -78,17 +78,28 @@ function createPostCard(post) {
   const likeButton = document.createElement('button');
   likeButton.className = 'like-button';
   likeButton.textContent = `👍 ${post.like_Num}`;
+  likeButton.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevents the click event from bubbling up
+    // Add any additional functionality for likeButton here
+  });
 
   const dislikeButton = document.createElement('button');
   dislikeButton.className = 'dislike-button';
   dislikeButton.textContent = `👎 ${post.dislike_Num}`;
-
+  dislikeButton.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevents the click event from bubbling up
+    // Add any additional functionality for dislikeButton here
+  });
   setupLikeDislikeButtons(likeButton, dislikeButton, post.id);
 
   const favoriteButton = document.createElement('button');
   favoriteButton.className = 'favorite-button';
   favoriteButton.textContent = '⭐ Favorite';
   setupFavoriteButton(favoriteButton, post.id);
+  favoriteButton.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevents the click event from bubbling up
+    // Add any additional functionality for favoriteButton here
+  });
 
   postContent.addEventListener('click', function() {
     postDescription.classList.toggle('hidden');
