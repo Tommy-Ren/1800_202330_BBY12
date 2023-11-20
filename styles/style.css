@@ -279,7 +279,11 @@
 }
 
 /************************ Photo Page ***************************/
-
+#cameracontainer {
+  background-color: rgb(237, 255, 195);
+  font-family: 'Teko', sans-serif;
+  font-size: large;
+}
 .camera {
   position: relative;
   width: 100%;
