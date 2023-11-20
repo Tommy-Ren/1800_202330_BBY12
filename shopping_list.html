@@ -32,13 +32,19 @@
         <!------------------------------>
         <!-- Your HTML Layout go here -->
         <br><br><br>
+        <div id="favoritescontainer">
         <div class="location-container">
-            <span class="location-icon">📍</span>
+            <span class="material-symbols-outlined">
+                location_on
+            </span>
             <a href="map.html">Your Location</a>
         </div>
+
         <!-- Favorites Section Start -->
         <section class="mt-5">
-            <h2 class="mb-4">My Favorites</h2>
+            <h2 class="mb-4 pagetitle2"><span class="material-symbols-outlined">
+                favorite
+                </span> &nbsp;My Favorites</h2>
             <div id="favorite-posts-container" class="container-fluid">
                 <!-- All posts will be appended here by JavaScript -->
             </div>
@@ -51,19 +57,19 @@
         <nav class="navbar fixed-bottom navbar-light bg-light">
             <div class="mobile-nav">
                 <a href="home_page.html" class="nav-icon">
-                    <img src="images/house-door.svg" alt="">
-                </a>
-                <a href="search_page.html" class="nav-icon">
-                    <img src="images/search.svg" alt="">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span> Home
                 </a>
                 <a href="upload_photo.html" class="nav-icon">
-                    <img src="images/plus-circle.svg" alt="">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_up
+                    </span> Upload
                 </a>
                 <a href="shopping_list.html" class="nav-icon">
-                    <img src="images/cart2.svg" alt="">
-                </a>
-                <a href="setting_page.html" class="nav-icon">
-                    <img src="images/gear-fill.svg" alt="">
+                    <span class="material-symbols-outlined">
+                        heart_plus
+                    </span> Favorites
                 </a>
             </div>
         </nav>
@@ -90,6 +96,6 @@
         <!-- Load jQuery if necessary -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    </body>
+    </div> </body>
 
 </html>

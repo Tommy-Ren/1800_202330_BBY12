@@ -6,7 +6,16 @@
 
 @media only screen and (max-width : 430px) {
 
-
+  a {
+    color: black;
+  }
+  
+  a:hover {
+    border: none;
+    background: orange;
+    box-shadow: 0px 0px 1px #777;
+    cursor: pointer;
+}
 
   #cutout {
     background-color: red;
@@ -16,10 +25,9 @@
 
   body {
     font-family: 'Roboto', 'Montserrat', sans-serif;
-    font-size: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: #cecece;
+    
   }
 
   #registerLink {
@@ -56,6 +64,26 @@
   width: 30px;
 }
 
+.pagetitle2 {
+  justify-content: flex-start;
+  align-items: baseline;
+  display: flex;
+  padding: 5%;
+  color: green;
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
+}
+
+.subsectiontitle {
+  justify-content: center;
+  display: flex;
+  align-items: baseline;
+  padding: 5%;
+  color: green;
+  font-size: 36px;
+  font-family: 'Teko', sans-serif;
+}
+
 /************************ Index Page  ***************************/
 .container-fluid {
   min-height: 100vh;
@@ -89,7 +117,11 @@
 
 /************************ Home Page  ***************************/
 
-#profileicon {
+#homecontainer {
+  background-color: rgb(237, 255, 195)
+}
+
+.pagetitle {
   justify-content: space-between;
   display: flex;
   padding: 5%;
@@ -260,12 +292,20 @@ video {
 }
 
 /************************ Upload Page ***************************/
+
+#uploadcontainer {
+  background-color: rgb(237, 255, 195);
+  font-family: 'Teko', sans-serif;
+  font-size: large;
+}
+
 .form-group {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 0.5rem;
   font-size: 1.25rem;
 }
+
 
 /************************ Search Page  ***************************/
 
@@ -331,4 +371,10 @@ video {
 .menu-button {
   align-content: flex-end;
   margin-top: 10px;
+}
+
+/************************ Shopping List/Favorites Page  ***************************/
+#favoritescontainer {
+  background-color: rgb(237, 255, 195);
+  font-family: 'Teko', sans-serif;
 }
