@@ -13,9 +13,14 @@
     </head>
 
     <body>
-        <!-- back button -->
-        <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark"
-                style="margin-right: 10px;">Back</button></a>
+        <div id="cameracontainer"><br><br><br>
+
+            <div class="pagetitle2">
+                <a class="material-symbols-outlined" onclick="javascript:history.back()">
+                    arrow_back
+                </a>&nbsp;My Camera
+            </div>
+
 
         <!-- Camera View -->
         <div class="camera">
@@ -23,12 +28,35 @@
         </div>
 
         <!-- Capture Button -->
-        <button id="snap" class="btn btn-primary position-absolute bottom-0 start-50 translate-middle-x">Take
-            Photo</button>
+        <button id="snap" class="btn btn-warning position-absolute bottom-50 start-50 translate-middle-x"><span class="material-symbols-outlined">
+            photo_camera
+            </span></button>
+
+        <!-- Bottom Navigation Start -->
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <div class="mobile-nav">
+                <a href="home_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span> Home
+                </a>
+                <a href="upload_photo.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_up
+                    </span> Upload
+                </a>
+                <a href="shopping_list.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        heart_plus
+                    </span> Favorites
+                </a>
+            </div>
+        </nav>
+        <!-- Bottom Navigation End -->
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="./scripts/photo.js"></script>
-    </body>
+    </div></body>
 
 </html>
