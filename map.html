@@ -14,13 +14,14 @@
     </head>
 
     <body>
-
-
-        <div class="container-fluid">
+        <div id="mapcontainer">
             <br><br><br>
-            <!-- back button -->
-            <a href="javascript:history.back()"><button type="button" class="btn btn-outline-dark"
-                    style="margin-right: 10px;">Back</button></a>
+            <div class="pagetitle2">
+                <a class="material-symbols-outlined" onclick="javascript:history.back()">
+                    arrow_back
+                </a>&nbsp;Map
+            </div>
+        <div class="container-fluid">
 
 
 
@@ -30,27 +31,27 @@
             <div id="map"></div>
             <!-- Main Content End -->
 
-            <!-- Bottom Navigation Start -->
-            <nav class="navbar fixed-bottom navbar-light bg-light">
-                <div class="mobile-nav">
-                    <a href="home_page.html" class="nav-icon">
-                        <img src="images/house-door.svg" alt="">
-                    </a>
-                    <a href="search_page.html" class="nav-icon">
-                        <img src="images/search.svg" alt="">
-                    </a>
-                    <a href="upload_photo.html" class="nav-icon">
-                        <img src="images/plus-circle.svg" alt="">
-                    </a>
-                    <a href="shopping_list.html" class="nav-icon">
-                        <img src="images/cart2.svg" alt="">
-                    </a>
-                    <a href="setting_page.html" class="nav-icon">
-                        <img src="images/gear-fill.svg" alt="">
-                    </a>
-                </div>
-            </nav>
-            <!-- Bottom Navigation End -->
+        <!-- Bottom Navigation Start -->
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <div class="mobile-nav">
+                <a href="home_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span> Home
+                </a>
+                <a href="upload_photo.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_up
+                    </span> Upload
+                </a>
+                <a href="shopping_list.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        heart_plus
+                    </span> Favorites
+                </a>
+            </div>
+        </nav>
+        <!-- Bottom Navigation End -->
 
         </div>
 
@@ -61,6 +62,6 @@
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOeaMCetLWKIv_LHx1_GFY0py2iFxszfQ&libraries=places&callback=initMap"
             async defer></script>
-    </body>
+    </div></body>
 
 </html>

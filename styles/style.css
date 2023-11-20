@@ -261,7 +261,11 @@
   display: block;
 }
 /************************ Map  ***************************/
-
+#mapcontainer {
+  background-color: rgb(237, 255, 195);
+  font-family: 'Teko', sans-serif;
+  font-size: large;
+}
 #map {
   height: 700px;
   width: 100%;
