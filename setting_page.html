@@ -37,20 +37,8 @@
             <a class="material-symbols-outlined" onclick="javascript:history.back()">
                 arrow_back
             </a>&nbsp;My Profile
-
-            <div class="d-flex justify-content-end">
-              <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-              <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
-            </div>
         </div>
-
-
-  
-        
-      
-
-
-      <fieldset class="mb-3" id="personalInfoFields">
+      <fieldset class="mb-5" id="personalInfoFields">
         <div class="forms">
           <div class="inputs">
             <span>Name</span>
@@ -77,7 +65,12 @@
             <input type="text" id="StreetInput" placeholder="3700 Willingdon Ave" disabled>
           </div>
         </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary w-50 mx-1" onclick="editUserInfo()">Edit</button>
+          <button type="button" class="btn btn-info w-50 mx-1" onclick="saveUserInfo()">Save</button>
+        </div>
       </fieldset>
+      
 
       <div class="list-group" id="list-tab" role="tablist">
         <a class="menu-button btn btn-warning active" id="profile" href="#" role="tab"
