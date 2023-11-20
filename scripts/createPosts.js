@@ -65,10 +65,12 @@ function createPostCard(post) {
   const postStoreName = document.createElement('p');
   postStoreName.className = 'post-store-name';
   postStoreName.textContent = `Store: ${post.store_Name}`;
+  postStoreName.classList.add('hidden');
 
   const postStoreLocation = document.createElement('p');
   postStoreLocation.className = 'post-store-location';
   postStoreLocation.textContent = `Location: ${post.store_Address}`;
+  postStoreLocation.classList.add('hidden');
 
   const postActions = document.createElement('div');
   postActions.className = 'post-actions';
@@ -91,10 +93,13 @@ function createPostCard(post) {
   postContent.addEventListener('click', function() {
     postDescription.classList.toggle('hidden');
     postExpiration.classList.toggle('hidden');
+    postStoreName.classList.toggle('hidden'); 
+    postStoreLocation.classList.toggle('hidden'); 
     postDescription.classList.toggle('show');
     postExpiration.classList.toggle('show');
-  })
-
+    postStoreName.classList.toggle('show'); 
+    postStoreLocation.classList.toggle('show'); 
+  });
 
   // Append everything to postCard
   postActions.append(likeButton, dislikeButton, favoriteButton);

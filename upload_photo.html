@@ -15,100 +15,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
-    <body>
-        <div id="uploadcontainer">
-            <br><br><br>
-            <div class="pagetitle2">
-                <a class="material-symbols-outlined" onclick="javascript:history.back()">
-                    arrow_back
-                </a>&nbsp;Upload Posts
-            </div>
-
-
-            <div class="container-fluid p-2 border rounded-3">
-                <br>
-                <form class="mb-3" id="post-form">
-                    <div class="form-group">
-                        <label for="title-input">Title</label>
-                        <input type="text" class="form-control form-control-lg" id="title-input"
-                            placeholder="On Sale Beef" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="price-input">Price</label>
-                        <input type="number" class="form-control form-control-lg" id="price-input" placeholder="10.99"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label for="desc-input">Description</label>
-                        <textarea class="form-control form-control-lg" id="desc-input" rows="3"
-                            placeholder="Good quality, on sale, etc."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="tag-input">Category</label>
-                        <select id="tag-input" class="form-control form-control-lg">
-                            <option>Beef</option>
-                            <option>Chicken</option>
-                            <option>Pork</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date-input">Expiration Date</label>
-                        <br>
-                        <input type="date" id="date-input" value="2023-11-09" />
-                    </div>
-                    <div class="my-2 form-group">
-                        <input type="file" id="pic-input" accept="image/*" />
-                        <img id="pic-goes-here" width=200 height=200 />
-                    </div>
-
-                    <!-- Submit button Start -->
-                    <div class="upload-btn px-2">
-                        <button type="button" class="btn btn-warning w-100" onclick="savePost()">Add Post</button>
-                    </div>
-                    <!-- Submit button End -->
-                    <br><br><br>
-                </form>
-            </div>
-
-            <!-- Bottom Navigation Start -->
-            <nav class="navbar fixed-bottom navbar-light bg-light">
-                <div class="mobile-nav">
-                    <a href="home_page.html" class="nav-icon">
-                        <span class="material-symbols-outlined">
-                            home
-                        </span> Home
-                    </a>
-                    <a href="upload_photo.html" class="nav-icon">
-                        <span class="material-symbols-outlined">
-                            arrow_circle_up
-                        </span> Upload
-                    </a>
-                    <a href="shopping_list.html" class="nav-icon">
-                        <span class="material-symbols-outlined">
-                            heart_plus
-                        </span> Favorites
-                    </a>
-                </div>
-            </nav>
-            <!-- Bottom Navigation End -->
-
-            <!-- Scripts -->
-
-            <!-- Load Firebase UI Stylesheet -->
-            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
-
-            <!-- Load jQuery if necessary -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-            <!-- Link to scripts of your own -->
-            <script src="./scripts/firebaseAPI_BBY12.js"></script>
-            <script src="./scripts/upload_photo.js"></script>
+<body>
+    <div id="uploadcontainer">
+        <br><br><br>
+        <div class="pagetitle2">
+            <a class="material-symbols-outlined" onclick="javascript:history.back()">
+                arrow_back
+            </a>&nbsp;Upload Posts
         </div>
-    </body>
+
+
+        <div class="container-fluid p-2 border rounded-3">
+            <br>
+            <form class="mb-3" id="post-form">
+                <div class="form-group">
+                    <label for="title-input">Title</label>
+                    <input type="text" class="form-control form-control-lg" id="title-input" placeholder="On Sale Beef"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="price-input">Price</label>
+                    <input type="number" class="form-control form-control-lg" id="price-input" placeholder="10.99"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="desc-input">Description</label>
+                    <textarea class="form-control form-control-lg" id="desc-input" rows="3"
+                        placeholder="Good quality, on sale, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tag-input">Category</label>
+                    <select id="tag-input" class="form-control form-control-lg">
+                        <option>Beef</option>
+                        <option>Chicken</option>
+                        <option>Pork</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="store-name-input">Store Name</label>
+                    <input type="text" class="form-control form-control-lg" id="store-name-input"
+                        placeholder="Save On Food" required>
+                </div>
+                <div class="form-group">
+                    <label for="store-name-input">Store Address</label>
+                    <button type="button" class="btn" onclick="">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </button>
+                    <input type="text" class="form-control form-control-lg" id="store-address-input"
+                        placeholder="1234 Willingdon Ave" required>
+                </div>
+                <div class="form-group">
+                    <label for="date-input">Expiration Date</label>
+                    <br>
+                    <input type="date" id="date-input" value="2023-11-09" />
+                </div>
+                <div class="my-2 form-group">
+                    <input type="file" id="pic-input" accept="image/*" />
+                    <img id="pic-goes-here" width=200 height=200 />
+                </div>
+
+                <!-- Submit button Start -->
+                <div class="upload-btn px-2">
+                    <button type="button" class="btn btn-warning w-100" onclick="savePost()">Add Post</button>
+                </div>
+                <!-- Submit button End -->
+                <br><br><br>
+            </form>
+        </div>
+
+        <!-- Bottom Navigation Start -->
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <div class="mobile-nav">
+                <a href="home_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span> Home
+                </a>
+                <a href="upload_photo.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_up
+                    </span> Upload
+                </a>
+                <a href="shopping_list.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        heart_plus
+                    </span> Favorites
+                </a>
+            </div>
+        </nav>
+        <!-- Bottom Navigation End -->
+
+        <!-- Scripts -->
+
+        <!-- Load Firebase UI Stylesheet -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+
+        <!-- Load jQuery if necessary -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Link to scripts of your own -->
+        <script src="./scripts/firebaseAPI_BBY12.js"></script>
+        <script src="./scripts/upload_photo.js"></script>
+    </div>
+</body>
 
 </html>
