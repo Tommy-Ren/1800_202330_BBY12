@@ -64,11 +64,11 @@ function createPostCard(post) {
 
   const postStoreName = document.createElement('p');
   postStoreName.className = 'post-store-name';
-  postStoreName.textContent = `Store: ${post.storeName}`;
+  postStoreName.textContent = `Store: ${post.store_Name}`;
 
   const postStoreLocation = document.createElement('p');
   postStoreLocation.className = 'post-store-location';
-  postStoreLocation.textContent = `Location: ${post.storeLocation}`;
+  postStoreLocation.textContent = `Location: ${post.store_Address}`;
 
   const postActions = document.createElement('div');
   postActions.className = 'post-actions';
@@ -200,8 +200,8 @@ function savePostToFirestore(title, description, imageURL, tag, price, expiratio
     tag: tag,
     price: price || 0.0, 
     expirationDate: expirationDate || null, 
-    StoreName: storeName || 'Unknown Store',
-    storeLocation: storeLocation || 'Unknown Location'
+    store_Name: store_Name || 'Unknown Store',
+    store_Address: store_Address || 'Unknown Location'
   };
 
   if (imageURL) {
