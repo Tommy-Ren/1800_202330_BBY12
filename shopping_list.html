@@ -31,21 +31,22 @@
 
         <!------------------------------>
         <!-- Your HTML Layout go here -->
-        <br><br><br>
         <div id="favoritescontainer">
-        <div class="location-container">
-            <span class="material-symbols-outlined">
-                location_on
-            </span>
-            <a href="map.html">Your Location</a>
-        </div>
+        <br><br><br>
+        
 
         <!-- Favorites Section Start -->
         <section class="mt-5">
-            <h2 class="mb-4 pagetitle2"><span class="material-symbols-outlined">
-                favorite
-                </span> &nbsp;My Favorites</h2>
+            <div class="pagetitle2">
+                <a class="material-symbols-outlined" onclick="javascript:history.back()">
+                    arrow_back
+                </a>&nbsp;My Favorites
+            </div>
+
+
             <div id="favorite-posts-container" class="container-fluid">
+
+
                 <!-- All posts will be appended here by JavaScript -->
             </div>
         </section>
