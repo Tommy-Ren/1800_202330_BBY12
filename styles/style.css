@@ -52,6 +52,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  font-size: larger;
 }
 
 .nav-icon {
@@ -118,7 +119,9 @@
 /************************ Home Page  ***************************/
 
 #homecontainer {
-  background-color: rgb(237, 255, 195)
+  background-color: rgb(237, 255, 195);
+  font-family: 'Teko', sans-serif;
+  font-size: large;
 }
 
 .pagetitle {
@@ -377,4 +380,5 @@ video {
 #favoritescontainer {
   background-color: rgb(237, 255, 195);
   font-family: 'Teko', sans-serif;
+  font-size: large;
 }
