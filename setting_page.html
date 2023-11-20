@@ -1,132 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>My BCIT Project</title>
-  <meta name="comp1800 template" content="My 1800 App">
+  <head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap Library CSS CDN go here -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-  <!-- Boostrap Library JS CDN  go here -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
 
-  <!-- Google Material Icon -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Google Material Icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-  <!-- Link to styles of your own -->
-  <link href="styles/style.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="./styles/style.css">
+    <!-- Link to styles of your own -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./styles/style.css">
 
-</head>
+  </head>
 
-<body>
-  <div class="container-fluid border">
-    <br><br>
-    <!-- Back button Start -->
-    <div class="row">
-      <div class="ps-3 fs-1 mb-3">
-        <button type="button" class="btn btn-outline-dark" onclick="javascript:history.back()">
-          <i class="bi bi-arrow-left"></i> Back
-        </button>
+  <body>
+    <div id="settingcontainer">
+    <div class="container-fluid border">
+      <br><br>
+      <!-- User Profile Container -->
+      <section class="mt-5">
+        <div class="pagetitle2">
+            <a class="material-symbols-outlined" onclick="javascript:history.back()">
+                arrow_back
+            </a>&nbsp;My Profile
+
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+              <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+            </div>
+        </div>
+
+
+  
+        
+      
+
+
+      <fieldset class="mb-3" id="personalInfoFields">
+        <div class="forms">
+          <div class="inputs">
+            <span>Name</span>
+            <input type="text" id="nameInput" placeholder="Your name" disabled>
+          </div>
+          <div class="inputs">
+            <span>Email</span>
+            <input type="email" id="emailInput" placeholder="Your Email" disabled>
+          </div>
+          <div class="inputs">
+            <span>Province</span>
+            <input type="text" id="provinceInput" placeholder="BC" disabled>
+          </div>
+          <div class="inputs">
+            <span>City</span>
+            <input type="text" id="cityInput" placeholder="Vancouver" disabled>
+          </div>
+          <div class="inputs">
+            <span>ZIP Code</span>
+            <input type="text" id="ZIPInput" placeholder="V5G 3H2" disabled>
+          </div>
+          <div class="inputs">
+            <span>Street Number</span>
+            <input type="text" id="StreetInput" placeholder="3700 Willingdon Ave" disabled>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="menu-button btn btn-warning active" id="profile" href="#" role="tab"
+          aria-controls="list-profile">Profile</a>
+        <a class="menu-button btn btn-warning" id="notification" href="#" role="tab"
+          aria-controls="list-settings">Notification</a>
+        <a class="menu-button btn btn-warning" id="logout" onclick="logOut()" href="#" role="tab"
+          aria-controls="list-settings">Log Out</a>
       </div>
+      <br><br><br>
     </div>
-    <!-- Back button End -->
 
-    <!-- User Profile Container -->
-    <div class="info">
-      <!-- User Profile Start -->
-      <span><b>User Profile</b></span>
-      <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-        <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+
+    <!-- Bottom Navigation Start -->
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="mobile-nav">
+        <a href="home_page.html" class="nav-icon">
+          <span class="material-symbols-outlined">
+            home
+          </span> Home
+        </a>
+        <a href="upload_photo.html" class="nav-icon">
+          <span class="material-symbols-outlined">
+            arrow_circle_up
+          </span> Upload
+        </a>
+        <a href="shopping_list.html" class="nav-icon">
+          <span class="material-symbols-outlined">
+            heart_plus
+          </span> Favorites
+        </a>
       </div>
-    </div>
-    <fieldset class="mb-3" id="personalInfoFields">
-      <div class="forms">
-        <div class="inputs">
-          <span>Name</span>
-          <input type="text" id="nameInput" placeholder="Your name" disabled>
-        </div>
-        <div class="inputs">
-          <span>Email</span>
-          <input type="email" id="emailInput" placeholder="Your Email" disabled>
-        </div>
-        <div class="inputs">
-          <span>Province</span>
-          <input type="text" id="provinceInput" placeholder="BC" disabled>
-        </div>
-        <div class="inputs">
-          <span>City</span>
-          <input type="text" id="cityInput" placeholder="Vancouver" disabled>
-        </div>
-        <div class="inputs">
-          <span>ZIP Code</span>
-          <input type="text" id="ZIPInput" placeholder="V5G 3H2" disabled>
-        </div>
-        <div class="inputs">
-          <span>Street Number</span>
-          <input type="text" id="StreetInput" placeholder="3700 Willingdon Ave" disabled>
-        </div>
-      </div>
-    </fieldset>
+    </nav>
+    <!-- Bottom Navigation End -->
 
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="menu-button btn btn-primary active" id="profile" href="#" role="tab"
-        aria-controls="list-profile">Profile</a>
-      <a class="menu-button btn btn-primary" id="notification" href="#" role="tab"
-        aria-controls="list-settings">Notification</a>
-      <a class="menu-button btn btn-primary" id="logout" onclick="logOut()" href="#" role="tab"
-        aria-controls="list-settings">Log Out</a>
-    </div>
-    <br><br><br>
-  </div>
+    <!-- Scripts -->
+    <!-- Load Firebase UI Stylesheet -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
 
+    <!-- Load jQuery if necessary -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bottom Navigation Start -->
-  <nav class="navbar fixed-bottom navbar-light bg-light">
-    <div class="mobile-nav">
-      <a href="home_page.html" class="nav-icon">
-        <img src="images/house-door.svg" alt="">
-      </a>
-      <a href="search_page.html" class="nav-icon">
-        <img src="images/search.svg" alt="">
-      </a>
-      <a href="upload_photo.html" class="nav-icon">
-        <img src="images/plus-circle.svg" alt="">
-      </a>
-      <a href="shopping_list.html" class="nav-icon">
-        <img src="images/cart2.svg" alt="">
-      </a>
-      <a href="setting_page.html" class="nav-icon">
-        <img src="images/gear-fill.svg" alt="">
-      </a>
-    </div>
-  </nav>
-  <!-- Bottom Navigation End -->
-
-  <!-- Scripts -->
-  <!-- Load Firebase UI Stylesheet -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
-
-  <!-- Load jQuery if necessary -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Link to scripts of your own -->
-  <script src="./scripts/firebaseAPI_BBY12.js"></script>
-  <script src="./scripts/setting_page.js"></script>
-</body>
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/firebaseAPI_BBY12.js"></script>
+    <script src="./scripts/setting_page.js"></script>
+  </div></body>
 
 </html>

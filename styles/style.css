@@ -329,8 +329,12 @@ video {
   padding-top: 20px;
 }
 
-/************************ Profile Page  ***************************/
-
+/************************ Setting/Profile Page  ***************************/
+#settingcontainer {
+  background-color: rgb(237, 255, 195);
+  font-family: 'Teko', sans-serif;
+  font-size: large;
+}
 .info {
   padding: 20px;
   display: flex;
