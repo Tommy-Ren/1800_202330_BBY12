@@ -16,7 +16,7 @@ function renderFavoritePosts(userId) {
         const postRef = db.collection('posts').doc(postId);
         postRef.get().then((postDoc) => {
           if (postDoc.exists) {
-            const postCard = createPostCard(postDoc.data());
+            const postCard = createFavorPostCard(postDoc.data());
             favoritesContainer.appendChild(postCard);
           } else {
             console.log(`Post not found: ${postId}`);
@@ -42,3 +42,156 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+function createFavorPostCard(post) {
+
+  const postCard = document.createElement('div');
+  postCard.className = 'post-card';
+
+  const postImage = document.createElement('img');
+  postImage.className = 'post-image';
+  postImage.src = post.image;
+  postImage.alt = 'Post Image';
+
+  const postContent = document.createElement('div');
+  postContent.className = 'post-content';
+
+  const postTitle = document.createElement('h2');
+  postTitle.className = 'post-title';
+  postTitle.textContent = post.title;
+
+  const postDescription = document.createElement('p');
+  postDescription.className = 'post-description';
+  postDescription.textContent = post.description;
+  postDescription.classList.add('hidden');
+
+  const postTags = document.createElement('p');
+  postTags.className = 'post-tags';
+  postTags.textContent = post.tag || 'No tag';
+
+  const postPrice = document.createElement('p');
+  postPrice.className = 'post-price';
+  postPrice.textContent = `Price: $${post.price.toFixed(2)}`;
+
+  const postExpiration = document.createElement('p');
+  postExpiration.className = 'post-expiration';
+  postExpiration.textContent = `Expires on: ${new Date(post.expirationDate).toLocaleDateString()}`;
+  postExpiration.classList.add('hidden');
+
+  const postStoreName = document.createElement('p');
+  postStoreName.className = 'post-store-name';
+  postStoreName.textContent = `Store: ${post.store_Name}`;
+  postStoreName.classList.add('hidden');
+
+  const postStoreLocation = document.createElement('p');
+  postStoreLocation.className = 'post-store-location';
+  postStoreLocation.textContent = `Location: ${post.store_Address}`;
+  postStoreLocation.classList.add('hidden');
+
+  const postActions = document.createElement('div');
+  postActions.className = 'post-actions';
+
+  const likeButton = document.createElement('button');
+  likeButton.className = 'like-button';
+  likeButton.textContent = `👍 ${post.like_Num}`;
+  likeButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+
+  const dislikeButton = document.createElement('button');
+  dislikeButton.className = 'dislike-button';
+  dislikeButton.textContent = `👎 ${post.dislike_Num}`;
+  dislikeButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+  setupLikeDislikeButtons(likeButton, dislikeButton, post.id);
+
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'delete-button';
+  deleteButton.textContent = 'Delete';
+  setupdeleteButton(deleteButton, post.id);
+  deleteButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+
+  postContent.addEventListener('click', function () {
+    postDescription.classList.toggle('hidden');
+    postExpiration.classList.toggle('hidden');
+    postStoreName.classList.toggle('hidden');
+    postStoreLocation.classList.toggle('hidden');
+    postDescription.classList.toggle('show');
+    postExpiration.classList.toggle('show');
+    postStoreName.classList.toggle('show');
+    postStoreLocation.classList.toggle('show');
+  });
+
+  // Append everything to postCard
+  postActions.append(likeButton, dislikeButton, deleteButton);
+  postContent.append(postTitle, postTags, postPrice, postExpiration, postDescription, postStoreName, postStoreLocation, postActions);
+  postCard.append(postImage, postContent);
+
+  return postCard;
+}
+
+function setupLikeDislikeButtons(likeButton, dislikeButton, postId) {
+  likeButton.addEventListener('click', function () {
+    updateLikeDislikeCount(postId, 'like_Num', likeButton);
+  });
+
+  dislikeButton.addEventListener('click', function () {
+    updateLikeDislikeCount(postId, 'dislike_Num', dislikeButton);
+  });
+}
+
+function updateLikeDislikeCount(postId, field, button) {
+  const postRef = db.collection('posts').doc(postId);
+  return db.runTransaction((transaction) => {
+    return transaction.get(postRef).then((postDoc) => {
+      if (!postDoc.exists) {
+        throw "Document does not exist!";
+      }
+
+      // Compute the new count
+      let newCount = (postDoc.data()[field] || 0) + 1;
+
+      // Update the Firestore document
+      transaction.update(postRef, { [field]: newCount });
+
+      // Update the button text
+      button.textContent = field === 'like_Num' ? `👍 ${newCount}` : `👎 ${newCount}`;
+    });
+  }).catch((error) => {
+    console.error("Transaction failed: ", error);
+  });
+}
+
+function setupdeleteButton(deleteButton, postId) {
+  const user = firebase.auth().currentUser;
+
+  if (user) {
+    const userId = user.uid;
+    const userRef = db.collection('users').doc(userId);
+    
+    // Event listener for clicks to add/remove from favorites
+    deleteButton.addEventListener('click', function () {
+      return db.runTransaction((transaction) => {
+        return transaction.get(userRef).then((userDoc) => {
+          if (!userDoc.exists) {
+            throw "User document does not exist!";
+          }
+          let userFavorites = userDoc.data().favorites || [];
+          const deleteIndex = userFavorites.indexOf(postId);
+          userFavorites.splice(deleteIndex, 1); // Remove from favorites
+          // Update the user's favorites in Firestore
+          transaction.update(userRef, { favorites: userFavorites });
+          location.reload(true);
+        });
+      }).catch((error) => {
+        console.error("Transaction failed: ", error);
+      });
+    });
+  } else {
+    console.error('User must be signed in to modify favorites.');
+    deleteButton.disabled = true;
+  }
+}

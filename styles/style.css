@@ -214,7 +214,8 @@
 
 .like-button,
 .dislike-button,
-.favorite-button {
+.favorite-button,
+.delete-button {
 
   border: 1px solid #ddd;
   padding: 5px 10px;
