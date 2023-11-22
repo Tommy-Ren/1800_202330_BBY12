@@ -13,7 +13,7 @@ function listenFileSelect() {
 }
 
 function savePost() {
-  alert("SAVE POST is triggered");
+  //alert("SAVE POST is triggered");
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // User is signed in.
@@ -112,6 +112,11 @@ function savePostIDforUser(postDocID) {
       .then(() => {
         console.log("5. Saved to user's document!");
         alert("Post is complete!");
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
         //window.location.href = "showposts.html";
       })
       .catch((error) => {
