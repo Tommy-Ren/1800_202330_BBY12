@@ -18,6 +18,11 @@ function renderFavoritePosts(userId) {
           if (postDoc.exists) {
             const postCard = createFavorPostCard(postDoc.data());
             favoritesContainer.appendChild(postCard);
+        
+            // Get the delete button for this post
+            const deleteButton = postCard.querySelector('.delete-button');
+            // Set up the delete button
+            setupDeleteButton(deleteButton, postId, postCard);
           } else {
             console.log(`Post not found: ${postId}`);
           }
@@ -91,25 +96,10 @@ function createFavorPostCard(post) {
   const postActions = document.createElement('div');
   postActions.className = 'post-actions';
 
-  const likeButton = document.createElement('button');
-  likeButton.className = 'like-button';
-  likeButton.textContent = `👍 ${post.like_Num}`;
-  likeButton.addEventListener('click', function (event) {
-    event.stopPropagation();
-  });
-
-  const dislikeButton = document.createElement('button');
-  dislikeButton.className = 'dislike-button';
-  dislikeButton.textContent = `👎 ${post.dislike_Num}`;
-  dislikeButton.addEventListener('click', function (event) {
-    event.stopPropagation();
-  });
-  setupLikeDislikeButtons(likeButton, dislikeButton, post.id);
-
   const deleteButton = document.createElement('button');
   deleteButton.className = 'delete-button';
   deleteButton.textContent = 'Delete';
-  setupdeleteButton(deleteButton, post.id);
+  setupDeleteButton(deleteButton, post.id);
   deleteButton.addEventListener('click', function (event) {
     event.stopPropagation();
   });
@@ -126,70 +116,48 @@ function createFavorPostCard(post) {
   });
 
   // Append everything to postCard
-  postActions.append(likeButton, dislikeButton, deleteButton);
+  postActions.append(deleteButton);
   postContent.append(postTitle, postTags, postPrice, postExpiration, postDescription, postStoreName, postStoreLocation, postActions);
   postCard.append(postImage, postContent);
 
   return postCard;
 }
 
-function setupLikeDislikeButtons(likeButton, dislikeButton, postId) {
-  likeButton.addEventListener('click', function () {
-    updateLikeDislikeCount(postId, 'like_Num', likeButton);
-  });
-
-  dislikeButton.addEventListener('click', function () {
-    updateLikeDislikeCount(postId, 'dislike_Num', dislikeButton);
-  });
-}
-
-function updateLikeDislikeCount(postId, field, button) {
-  const postRef = db.collection('posts').doc(postId);
-  return db.runTransaction((transaction) => {
-    return transaction.get(postRef).then((postDoc) => {
-      if (!postDoc.exists) {
-        throw "Document does not exist!";
-      }
-
-      // Compute the new count
-      let newCount = (postDoc.data()[field] || 0) + 1;
-
-      // Update the Firestore document
-      transaction.update(postRef, { [field]: newCount });
-
-      // Update the button text
-      button.textContent = field === 'like_Num' ? `👍 ${newCount}` : `👎 ${newCount}`;
-    });
-  }).catch((error) => {
-    console.error("Transaction failed: ", error);
-  });
-}
-
-function setupdeleteButton(deleteButton, postId) {
+function setupDeleteButton(deleteButton, postId, postCard) {
   const user = firebase.auth().currentUser;
 
   if (user) {
     const userId = user.uid;
     const userRef = db.collection('users').doc(userId);
-    
-    // Event listener for clicks to add/remove from favorites
-    deleteButton.addEventListener('click', function () {
+
+    // Event listener for clicks to remove from favorites
+    deleteButton.addEventListener('click', function() {
       return db.runTransaction((transaction) => {
         return transaction.get(userRef).then((userDoc) => {
           if (!userDoc.exists) {
             throw "User document does not exist!";
           }
+
           let userFavorites = userDoc.data().favorites || [];
-          const deleteIndex = userFavorites.indexOf(postId);
-          userFavorites.splice(deleteIndex, 1); // Remove from favorites
+          const favoriteIndex = userFavorites.indexOf(postId);
+          if (favoriteIndex !== -1) {
+            userFavorites.splice(favoriteIndex, 1); // Remove from favorites
+            deleteButton.textContent = 'Removed from Favorites';
+
+            // Remove the post card from the DOM
+            postCard.remove();
+          } else {
+            console.error('Post is not in favorites.');
+          }
+
           // Update the user's favorites in Firestore
           transaction.update(userRef, { favorites: userFavorites });
-          location.reload(true);
         });
       }).catch((error) => {
         console.error("Transaction failed: ", error);
       });
     });
+
   } else {
     console.error('User must be signed in to modify favorites.');
     deleteButton.disabled = true;
