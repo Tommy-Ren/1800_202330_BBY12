@@ -13,7 +13,7 @@ function listenFileSelect() {
 }
 
 function savePost() {
-  
+  alert("SAVE POST is triggered");
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // User is signed in.
@@ -25,7 +25,7 @@ function savePost() {
       var date = document.getElementById("date-input").value;
       var store_Name = document.getElementById("store-name-input").value;
       var store_Address = document.getElementById("store-address-input").value;
-      if (isNaN(price) || price < 0) {
+      if (isNaN(price)) {
         console.log("Error: Price is not a number.");
         return; // Exit the function if price is not a number
       }
@@ -111,12 +111,7 @@ function savePostIDforUser(postDocID) {
     })
       .then(() => {
         console.log("5. Saved to user's document!");
-        //alert("Upload Successful!");
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Post is complete!");
         //window.location.href = "showposts.html";
       })
       .catch((error) => {
