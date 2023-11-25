@@ -13,7 +13,7 @@ function listenFileSelect() {
 }
 
 function savePost() {
-  alert("SAVE POST is triggered");
+  //alert("SAVE POST is triggered");
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // User is signed in.
@@ -25,9 +25,45 @@ function savePost() {
       var date = document.getElementById("date-input").value;
       var store_Name = document.getElementById("store-name-input").value;
       var store_Address = document.getElementById("store-address-input").value;
+      if (!title) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Title is required.",
+        });
+        return;
+      }
+      if (!price) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Price is required.",
+        });
+        return;
+      }
       if (isNaN(price)) {
-        console.log("Error: Price is not a number.");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Price should be a number.",
+        });
         return; // Exit the function if price is not a number
+      }
+      if (!store_Name) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Store name is required.",
+        });
+        return;
+      }
+      if (!store_Address) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Store address is required.",
+        });
+        return;
       }
       db.collection("posts").add({
         owner: user.uid,
@@ -43,13 +79,15 @@ function savePost() {
         last_updated: firebase.firestore.FieldValue
           .serverTimestamp() //current system time
       }).then(doc => {
-        console.log("1. Post document added!");
-        console.log(doc.id);
         uploadPic(doc.id);
       })
     } else {
       // No user is signed in.
-      console.log("Error, no user signed in");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Need authentication to save post!",
+      });
     }
   });
 }
@@ -64,19 +102,16 @@ function savePost() {
 // and we know the post's document id.
 //------------------------------------------------
 function uploadPic(postDocID) {
-  console.log("inside uploadPic " + postDocID);
   var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
   storageRef.put(ImageFile)   //global variable ImageFile
 
     // AFTER .put() is done
     .then(function () {
-      console.log('2. Uploaded to Cloud Storage.');
       storageRef.getDownloadURL()
 
         // AFTER .getDownloadURL is done
         .then(function (url) { // Get URL of the uploaded file
-          console.log("3. Got the download URL.");
 
           // Now that the image is on Storage, we can go back to the
           // post document, and update it with an "image" field
@@ -86,7 +121,6 @@ function uploadPic(postDocID) {
           })
             // AFTER .update is done
             .then(function () {
-              console.log('4. Added pic URL to Firestore.');
               // One last thing to do:
               // save this postID into an array for the OWNER
               // so we can show "my posts" in the future
@@ -95,7 +129,11 @@ function uploadPic(postDocID) {
         })
     })
     .catch((error) => {
-      console.log("error uploading to cloud storage");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "error uploading to cloud storage!",
+      });
     })
 }
 
@@ -110,12 +148,19 @@ function savePostIDforUser(postDocID) {
       myposts: firebase.firestore.FieldValue.arrayUnion(postDocID)
     })
       .then(() => {
-        console.log("5. Saved to user's document!");
-        alert("Post is complete!");
-        //window.location.href = "showposts.html";
+        Swal.fire({
+          icon: "success",
+          title: "Your post upload successfully!",
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
       .catch((error) => {
-        console.error("Error writing document: ", error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Error: " + error,
+        });
       });
   })
 }
