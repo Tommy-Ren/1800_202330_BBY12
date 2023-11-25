@@ -12,6 +12,7 @@
     <link href="styles/style.css" rel="stylesheet" type="text/css">
     <!-- CSS stylesheet End-->
     <!-- Google Material Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
@@ -56,8 +57,8 @@
                 </div>
                 <div class="form-group">
                     <label for="store-name-input">Store Name</label>
-                    <input type="text" class="form-control form-control-lg" id="store-name-input"
-                        placeholder="Save On Food" required>
+                    <input type="text" class="form-control form-control-lg" value="Save On Food" id="store-name-input"
+                        placeholder="Save On Food">
                 </div>
                 <div class="form-group">
                     <label for="store-name-input">Store Address</label>
@@ -65,22 +66,22 @@
                         <i class="bi bi-geo-alt-fill"></i>
                     </button>
                     <input type="text" class="form-control form-control-lg" id="store-address-input"
-                        placeholder="1234 Willingdon Ave" required>
+                        placeholder="1234 Willingdon Ave">
                 </div>
                 <div class="form-group">
                     <label for="date-input">Expiration Date</label>
                     <br>
-                    <input type="date" id="date-input" value="2023-11-09" />
+                    <input type="date" id="date-input" value="2023-11-30" />
                 </div>
                 <div class="mx-3 btn btn-warning">
                     <a href="photo.html">
                         <div class="align-bottom material-symbols-outlined">
-                            photo_camera 
+                            photo_camera
                         </div>
                         Take A Picture
-                    </a> 
+                    </a>
                 </div>
-                 
+
                 <div class="my-2 form-group">
                     <input type="file" id="pic-input" accept="image/*" />
                     <img id="pic-goes-here" width="200" height="200" />
@@ -88,7 +89,7 @@
 
                 <!-- Submit button Start -->
                 <div class="upload-btn px-2">
-                    <button type="button" class="btn btn-warning w-100" onclick="savePost()">Add Post</button>
+                    <button type="submit" class="btn btn-warning w-100" onclick="savePost()">Add Post</button>
                 </div>
                 <!-- Submit button End -->
                 <br><br><br>
@@ -129,8 +130,7 @@
         <!-- Load jQuery if necessary -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
 
         <!-- Link to scripts of your own -->
         <script src="./scripts/firebaseAPI_BBY12.js"></script>
