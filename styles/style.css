@@ -24,7 +24,6 @@
   }
 
   body {
-    font-family: 'Roboto', 'Montserrat', sans-serif;
     margin: 0px;
     padding: 0px;
     
@@ -52,7 +51,8 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  font-size: larger;
+  font-size: x-large;
+  font-family: Teko;
 }
 
 .nav-icon {
