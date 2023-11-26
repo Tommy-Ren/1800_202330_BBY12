@@ -146,10 +146,7 @@ function setupDeleteButton(deleteButton, postId, postCard) {
 
             // Remove the post card from the DOM
             postCard.remove();
-          } else {
-            console.error('Post is not in favorites.');
-          }
-
+          } 
           // Update the user's favorites in Firestore
           transaction.update(userRef, { favorites: userFavorites });
         });
