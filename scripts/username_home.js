@@ -14,7 +14,7 @@ function populateUserInfo() {
 
                 //if the data fields are not empty, then write them in to the form.
                 if (userName != null) {
-                    document.getElementById("nameInput2").value = userName;
+                    document.getElementById("nameInput2").innerText = userName;
                 }
             })
         } else {
