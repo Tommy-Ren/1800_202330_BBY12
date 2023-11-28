@@ -59,10 +59,10 @@ function createPostCard(post) {
 
   const postExpiration = document.createElement('p');
   postExpiration.className = 'post-expiration';
-  const expirationDateString = post.expirationDate; // Assuming this is a string from Firestore
-  const expirationDate = expirationDateString ? new Date(expirationDateString) : new Date();
-  postExpiration.textContent = `Expires on: ${expirationDate.toLocaleDateString()}`;
-  postExpiration.classList.add('hidden');;
+  const expirationDateString = post.date; // Use 'date' from the Firestore document
+  const expirationDate = expirationDateString ? new Date(expirationDateString) : null;
+  postExpiration.textContent = expirationDate ? `Expires on: ${expirationDate.toLocaleDateString()}` : 'Expiration date not set';
+  postExpiration.classList.add('hidden');
 
   const postStoreName = document.createElement('p');
   postStoreName.className = 'post-store-name';
@@ -113,7 +113,7 @@ function createPostCard(post) {
 
   // Append everything to postCard
   postActions.append(likeButton, dislikeButton, favoriteButton);
-  postContent.append(postTags, postTitle, postPrice, postExpiration, postDescription, postStoreName, postStoreLocation, postActions);
+  postContent.append(postTags, postTitle, postPrice, postDescription, postStoreName, postStoreLocation, postExpiration, postActions);
   postCard.append(postImage, postContent);
 
   return postCard;
@@ -122,12 +122,21 @@ function createPostCard(post) {
 function setupLikeDislikeButtons(likeButton, dislikeButton, postId) {
   likeButton.addEventListener('click', function() {
     updateLikeDislikeCount(postId, 'like_Num', likeButton);
+    likeButton.disabled = true;
+    dislikeButton.disabled = true;
+    likeButton.style.backgroundColor = '#cccccc'; 
+    dislikeButton.style.backgroundColor = '';
   });
 
   dislikeButton.addEventListener('click', function() {
     updateLikeDislikeCount(postId, 'dislike_Num', dislikeButton);
+    likeButton.disabled = true;
+    dislikeButton.disabled = true;
+    likeButton.style.backgroundColor = '';
+    dislikeButton.style.backgroundColor = '#cccc'; 
   });
 }
+
 
 function updateLikeDislikeCount(postId, field, button) {
   const postRef = db.collection('posts').doc(postId);
