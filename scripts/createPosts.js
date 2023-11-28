@@ -60,7 +60,7 @@ function createPostCard(post) {
 
   const postPrice = document.createElement('p');
   postPrice.className = 'post-price';
-  postPrice.textContent = `Price: $${post.price}`; 
+  postPrice.textContent = `$${post.price}`; 
 
   const postExpiration = document.createElement('p');
   postExpiration.className = 'post-expiration';
@@ -71,12 +71,12 @@ function createPostCard(post) {
 
   const postStoreName = document.createElement('p');
   postStoreName.className = 'post-store-name';
-  postStoreName.textContent = `Store: ${post.store_Name}`;
+  postStoreName.textContent = `${post.store_Name}`;
   postStoreName.classList.add('hidden');
 
   const postStoreLocation = document.createElement('p');
   postStoreLocation.className = 'post-store-location';
-  postStoreLocation.textContent = `Location: ${post.store_Address}`;
+  postStoreLocation.textContent = `${post.store_Address}`;
   postStoreLocation.classList.add('hidden');
 
   const postActions = document.createElement('div');
@@ -122,7 +122,7 @@ function createPostCard(post) {
 
   // Append everything to postCard
   postActions.append(likeButton, dislikeButton, favoriteButton, viewMoreButton);
-  postContent.append(postTags, postTitle, postPrice, postDescription, postStoreName, postStoreLocation, postExpiration, postActions);
+  postContent.append(postTags, postTitle, postPrice, postStoreName, postStoreLocation, postExpiration, postDescription, postActions);
   postCard.append(postImage, postContent);
 
   return postCard;

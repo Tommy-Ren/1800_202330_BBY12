@@ -216,13 +216,13 @@
 }
 
 .post-title {
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .post-description {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #333333;
   margin-bottom: 1rem;
   color: white;
@@ -230,8 +230,8 @@
 
 .post-tags
 .post-price,
-.post-expiration {
-  font-size: 0.9rem;
+.post-expiration, .post-store-name, .post-store-location, .post-price {
+  font-size: 1.5rem;
   color: #555;
   margin-bottom: 0.25rem;
   color: white;
