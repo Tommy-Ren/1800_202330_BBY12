@@ -20,7 +20,8 @@ function savePost() {
       // Do something for the user here. 
       var title = document.getElementById("title-input").value;
       var desc = document.getElementById("desc-input").value;
-      var price = parseFloat(Math.abs(document.getElementById("price-input").value.toFixed(2)));
+      var price = parseFloat(document.getElementById("price-input").value);
+      // var price = parseFloat(Math.abs(document.getElementById("price-input").value.toFixed(2)));
       var tag = document.getElementById("tag-input").value;
       var date = document.getElementById("date-input").value;
       var store_Name = document.getElementById("store-name-input").value;
