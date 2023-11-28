@@ -59,8 +59,10 @@ function createPostCard(post) {
 
   const postExpiration = document.createElement('p');
   postExpiration.className = 'post-expiration';
-  postExpiration.textContent = `Expires on: ${new Date(post.expirationDate).toLocaleDateString()}`;
-  postExpiration.classList.add('hidden');
+  const expirationDateString = post.expirationDate; // Assuming this is a string from Firestore
+  const expirationDate = expirationDateString ? new Date(expirationDateString) : new Date();
+  postExpiration.textContent = `Expires on: ${expirationDate.toLocaleDateString()}`;
+  postExpiration.classList.add('hidden');;
 
   const postStoreName = document.createElement('p');
   postStoreName.className = 'post-store-name';
@@ -111,7 +113,7 @@ function createPostCard(post) {
 
   // Append everything to postCard
   postActions.append(likeButton, dislikeButton, favoriteButton);
-  postContent.append(postTitle, postTags, postPrice, postExpiration, postDescription, postStoreName, postStoreLocation, postActions);
+  postContent.append(postTags, postTitle, postPrice, postExpiration, postDescription, postStoreName, postStoreLocation, postActions);
   postCard.append(postImage, postContent);
 
   return postCard;
@@ -212,7 +214,7 @@ function savePostToFirestore(title, description, imageURL, tag, price, expiratio
     dislike_Num: 0,
     tag: tag,
     price: price || 0.0, 
-    expirationDate: expirationDate || null, 
+    expirationDate: expirationDate ? new Date(expirationDate).toISOString() : null,
     store_Name: store_Name || 'Unknown Store',
     store_Address: store_Address || 'Unknown Location'
   };

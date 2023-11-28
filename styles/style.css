@@ -167,6 +167,19 @@
   color: #ddd;
 }
 
+.post-tags {
+  display: inline-block;
+  background-color: orange; 
+  color: black;
+  padding: 5px 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  max-width: fit-content;
+}
 
 .tags-container {
   display: flex;
