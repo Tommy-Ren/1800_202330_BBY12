@@ -18,12 +18,17 @@ function createPopularPostCard(post) {
     const descriptionElement = document.createElement('p');
     descriptionElement.className = 'card-text';
     descriptionElement.textContent = post.description;
+    const favoriteButton = document.createElement('button');
+    favoriteButton.className = 'favorite-button';
+    favoriteButton.textContent = '⭐ Favorite';
+    setupFavoriteButton(favoriteButton, post.id);
   
     // Append all elements to the postElement
     bodyElement.appendChild(titleElement);
     bodyElement.appendChild(descriptionElement);
     postElement.appendChild(imageElement);
     postElement.appendChild(bodyElement);
+    bodyElement.append(favoriteButton);
   
     return postElement;
 }
