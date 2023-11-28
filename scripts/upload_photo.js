@@ -167,3 +167,18 @@ function savePostIDforUser(postDocID) {
 }
 
 listenFileSelect();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const capturedImage = localStorage.getItem('capturedImage');
+  if (capturedImage) {
+    const fileInput = document.getElementById("pic-input");
+    const newFile = new File([capturedImage], "webcam-image.jpg", { type: "image/jpeg", lastModified: new Date().getTime() });
+
+    var container = new DataTransfer();
+    container.items.add(newFile);
+    fileInput.files = container.files;
+
+    // Clear the local storage
+    localStorage.removeItem('capturedImage');
+  }
+});
