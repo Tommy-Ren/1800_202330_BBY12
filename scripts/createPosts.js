@@ -55,7 +55,7 @@ function createPostCard(post) {
 
   const postPrice = document.createElement('p');
   postPrice.className = 'post-price';
-  postPrice.textContent = `Price: $${post.price.toFixed(2)}`; 
+  postPrice.textContent = `Price: $${post.price}`; 
 
   const postExpiration = document.createElement('p');
   postExpiration.className = 'post-expiration';
