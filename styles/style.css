@@ -410,6 +410,13 @@ video {
   margin-top: 10px;
 }
 
+/************************ My Posts Page  ***************************/
+#mypostscontainer {
+  background-color: rgb(237, 255, 195);
+  font-family: 'Teko', sans-serif;
+  font-size: large;
+}
+
 /************************ Shopping List/Favorites Page  ***************************/
 #favoritescontainer {
   background-color: rgb(237, 255, 195);

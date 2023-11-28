@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Google Material Icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Link to styles of your own -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <!-- My Posts Container -->
+    <div id="mypostscontainer">
+        <br><br><br>
+
+        <div class="pagetitle2">
+            <a class="material-symbols-outlined" onclick="javascript:history.back()">
+                arrow_back
+            </a>&nbsp;My Posts
+        </div>
+
+        <div id="my-posts-container" class="container-fluid">
+            <!-- All posts will be appended here by JavaScript -->
+        </div>
+        <br>
+        <!-- Bottom Navigation Start -->
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <div class="mobile-nav">
+                <a href="home_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span> Home
+                </a>
+                <a href="upload_photo.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_up
+                    </span> Upload
+                </a>
+                <a href="shopping_list.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        heart_plus
+                    </span> Favorites
+                </a>
+                <a href="setting_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                    </span> Profile
+                </a>
+            </div>
+        </nav>
+        <!-- Bottom Navigation End -->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- Your Custom Firebase Initializer Script -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Load Firebase UI Stylesheet -->
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/my_posts.js"></script>
+    <script src="./scripts/firebaseAPI_BBY12.js"></script>
+
+    <!-- Load jQuery if necessary -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+
+</html>
