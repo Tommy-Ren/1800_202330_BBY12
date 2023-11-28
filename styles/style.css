@@ -247,7 +247,7 @@
 
 .like-button,
 .dislike-button,
-.favorite-button,
+.favorite-button,.view-more-button, 
 .delete-button {
 
   border: 1px solid #ddd;
@@ -256,7 +256,6 @@
   transition: background-color 0.3s;
   background: white;
 }
-
 
 .popular-posts-container {
   white-space: nowrap;

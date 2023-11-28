@@ -100,6 +100,10 @@ function createPostCard(post) {
     event.stopPropagation(); 
   });
 
+  const viewMoreButton = document.createElement('button');
+    viewMoreButton.className = 'view-more-button';
+    viewMoreButton.textContent = 'View More';
+
   postContent.addEventListener('click', function() {
     postDescription.classList.toggle('hidden');
     postExpiration.classList.toggle('hidden');
@@ -112,7 +116,7 @@ function createPostCard(post) {
   });
 
   // Append everything to postCard
-  postActions.append(likeButton, dislikeButton, favoriteButton);
+  postActions.append(likeButton, dislikeButton, favoriteButton, viewMoreButton);
   postContent.append(postTags, postTitle, postPrice, postDescription, postStoreName, postStoreLocation, postExpiration, postActions);
   postCard.append(postImage, postContent);
 
