@@ -20,17 +20,17 @@
                     arrow_back
                 </a>&nbsp;My Camera
             </div>
-
-
-        <!-- Camera View -->
-        <div class="camera">
-            <video id="video" playsinline autoplay></video>
-        </div>
-
-        <!-- Capture Button -->
-        <button id="snap" class="btn btn-warning position-absolute bottom-50 start-50 translate-middle-x"><span class="material-symbols-outlined">
-            photo_camera
-            </span></button>
+    
+            <!-- Camera View -->
+            <div class="camera">
+                <!-- Added inline styles for visibility -->
+                <video id="video" playsinline autoplay style="width: 100%; height: auto;"></video>
+            </div>
+    
+            <!-- Capture Button -->
+            <button id="snap" class="btn btn-warning position-absolute bottom-50 start-50 translate-middle-x">
+                <span class="material-symbols-outlined">photo_camera</span>
+            </button>
 
         <!-- Bottom Navigation Start -->
         <nav class="navbar fixed-bottom navbar-light bg-light">
