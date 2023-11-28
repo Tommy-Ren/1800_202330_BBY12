@@ -263,7 +263,8 @@
 .popular-post img {
   width: 100%;
   border-radius: 15px;
-  height: 80%;
+  height: 300px;
+  object-fit: scale-down;
 }
 
 .popular-post .card-body {
