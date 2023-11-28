@@ -28,15 +28,11 @@
 </head>
 
 <body>
-
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
     
     <!-- Favorites Section Start -->
     <div id="favoritescontainer">
         <br><br><br>
 
-        
         <div class="pagetitle2">
             <a class="material-symbols-outlined" onclick="javascript:history.back()">
                 arrow_back
@@ -47,36 +43,34 @@
             <!-- All posts will be appended here by JavaScript -->
         </div>
 
-        
+        <!-- Bottom Navigation Start -->
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <div class="mobile-nav">
+                <a href="home_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span> Home
+                </a>
+                <a href="upload_photo.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        arrow_circle_up
+                    </span> Upload
+                </a>
+                <a href="shopping_list.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        heart_plus
+                    </span> Favorites
+                </a>
+                <a href="setting_page.html" class="nav-icon">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                    </span> Profile
+                </a>
+            </div>
+        </nav>
+        <!-- Bottom Navigation End -->
     </div>
     <!-- Favorites Section End -->
-
-    <!-- Bottom Navigation Start -->
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-        <div class="mobile-nav">
-            <a href="home_page.html" class="nav-icon">
-                <span class="material-symbols-outlined">
-                    home
-                </span> Home
-            </a>
-            <a href="upload_photo.html" class="nav-icon">
-                <span class="material-symbols-outlined">
-                    arrow_circle_up
-                </span> Upload
-            </a>
-            <a href="shopping_list.html" class="nav-icon">
-                <span class="material-symbols-outlined">
-                    heart_plus
-                </span> Favorites
-            </a>
-            <a href="setting_page.html" class="nav-icon">
-                <span class="material-symbols-outlined">
-                    account_circle
-                </span> Profile
-            </a>
-        </div>
-    </nav>
-    <!-- Bottom Navigation End -->
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
@@ -97,7 +91,6 @@
 
     <!-- Load jQuery if necessary -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 
 </body>
 
