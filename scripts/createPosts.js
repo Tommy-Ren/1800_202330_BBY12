@@ -119,6 +119,13 @@ function createPostCard(post) {
     postExpiration.classList.toggle('show');
     postStoreName.classList.toggle('show'); 
     postStoreLocation.classList.toggle('show'); 
+
+    if (viewMoreButton.textContent === 'View More') {
+      viewMoreButton.textContent = 'Hide';
+  } else {
+      viewMoreButton.textContent = 'View More';
+  }
+  
   });
 
   // Append everything to postCard
