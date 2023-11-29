@@ -110,7 +110,7 @@ function createPostCard(post) {
     viewMoreButton.className = 'view-more-button';
     viewMoreButton.textContent = 'View More';
 
-  postContent.addEventListener('click', function() {
+    viewMoreButton.addEventListener('click', function() {
     postDescription.classList.toggle('hidden');
     postExpiration.classList.toggle('hidden');
     postStoreName.classList.toggle('hidden'); 
@@ -121,7 +121,7 @@ function createPostCard(post) {
     postStoreLocation.classList.toggle('show'); 
 
     if (viewMoreButton.textContent === 'View More') {
-      viewMoreButton.textContent = 'Hide';
+      viewMoreButton.textContent = 'View Less';
   } else {
       viewMoreButton.textContent = 'View More';
   }
