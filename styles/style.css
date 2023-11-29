@@ -237,7 +237,9 @@
   color: white;
 }
 
-
+.post-price {
+  font-size: 2rem;
+}
 
 .post-actions {
   display: flex;
