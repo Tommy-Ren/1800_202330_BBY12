@@ -31,18 +31,18 @@
             <form class="mb-3" id="post-form">
                 <div class="form-group">
                     <label for="title-input">Title</label>
-                    <input type="text" class="form-control form-control-lg" id="title-input" placeholder="On Sale Beef"
+                    <input type="text" class="form-control form-control-lg" id="title-input" placeholder="Provide title"
                         required>
                 </div>
                 <div class="form-group">
                     <label for="price-input">Price</label>
                     <input min="0" step="0.01" type="number" onkeypress="return event.charCode != 45"
-                        class="form-control form-control-lg" id="price-input" placeholder="10.99" required>
+                        class="form-control form-control-lg" id="price-input" placeholder="Provide price" required>
                 </div>
                 <div class="form-group">
                     <label for="desc-input">Description</label>
                     <textarea class="form-control form-control-lg" id="desc-input" rows="3"
-                        placeholder="Good quality, on sale, etc."></textarea>
+                        placeholder="Provide description"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tag-input">Category</label>
@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label for="store-name-input">Store Name</label>
                     <input type="text" class="form-control form-control-lg" id="store-name-input"
-                        placeholder="Save On Food">
+                        placeholder="Provide store name">
                 </div>
                 <div class="form-group">
                     <label for="store-name-input">Store Address</label>
@@ -66,7 +66,7 @@
                         <i class="bi bi-geo-alt-fill"></i>
                     </button>
                     <input type="text" class="form-control form-control-lg" id="store-address-input"
-                        placeholder="1234 Willingdon Ave">
+                        placeholder="Provide store location">
                 </div>
                 <div class="form-group">
                     <label for="date-input">Expiration Date</label>
@@ -140,6 +140,7 @@
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_BBY12.js"></script>
     <script src="./scripts/upload_photo.js"></script>
+    
 </body>
 
 </html>

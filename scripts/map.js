@@ -25,7 +25,6 @@ function initMap() {
     // more details for that place.
     searchBox.addListener('places_changed', function() {
       var places = searchBox.getPlaces();
-  
       if (places.length == 0) {
         return;
       }

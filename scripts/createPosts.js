@@ -65,7 +65,7 @@ function createPostCard(post) {
 
   const postExpiration = document.createElement('p');
   postExpiration.className = 'post-expiration';
-  const expirationDateString = post.date; // Use 'date' from the Firestore document
+  const expirationDateString = post.date; 
   const expirationDate = expirationDateString ? new Date(expirationDateString) : null;
   postExpiration.textContent = expirationDate ? `Expires on: ${expirationDate.toLocaleDateString()}` : 'Expiration date not set';
   postExpiration.classList.add('hidden');

@@ -117,7 +117,7 @@ function createFavorPostCard(post) {
 
   // Append everything to postCard
   postActions.append(deleteButton);
-  postContent.append(postTitle, postTags, postPrice, postExpiration, postDescription, postStoreName, postStoreLocation, postActions);
+  postContent.append(postTags, postTitle, postPrice, postExpiration, postStoreName, postStoreLocation, postDescription, postActions);
   postCard.append(postImage, postContent);
 
   return postCard;
