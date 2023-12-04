@@ -132,39 +132,48 @@ function createMyPostsCard(post) {
 // db.collection("posts").doc(postId).delete();
 function setupDeleteButton(deleteButton, postId, postCard) {
     const user = firebase.auth().currentUser;
-  
+
     if (user) {
-      const userId = user.uid;
-      const userRef = db.collection('users').doc(userId);
-  
-      // Event listener for clicks to remove from myposts
-      deleteButton.addEventListener('click', function() {
-        db.collection("posts").doc(postId).delete();
-        return db.runTransaction((transaction) => {
-          return transaction.get(userRef).then((userDoc) => {
-            if (!userDoc.exists) {
-              throw "User document does not exist!";
-            }
-  
-            let userAllPosts = userDoc.data().myposts || [];
-            const myPostsIndex = userAllPosts.indexOf(postId);
-            if (myPostsIndex !== -1) {
-              userAllPosts.splice(myPostsIndex, 1); // Remove from myposts
-              deleteButton.textContent = 'Removed from myposts';
-  
-              // Remove the post card from the DOM
-              postCard.remove();
-            } 
-            // Update the user's myposts in Firestore
-            transaction.update(userRef, { myposts: userAllPosts });
-          });
-        }).catch((error) => {
-          console.error("Transaction failed: ", error);
+        const userId = user.uid;
+        const userRef = db.collection('users').doc(userId);
+
+        // Event listener for clicks to remove from myposts
+        deleteButton.addEventListener('click', function () {
+            Swal.fire({
+                title: "Are you sure to delete it?",
+                showCancelButton: true,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire("Deleted!", "", "success");
+                    db.collection("posts").doc(postId).delete();
+                    return db.runTransaction((transaction) => {
+                        return transaction.get(userRef).then((userDoc) => {
+                            if (!userDoc.exists) {
+                                throw "User document does not exist!";
+                            }
+
+                            let userAllPosts = userDoc.data().myposts || [];
+                            const myPostsIndex = userAllPosts.indexOf(postId);
+                            if (myPostsIndex !== -1) {
+                                userAllPosts.splice(myPostsIndex, 1); // Remove from myposts
+                                deleteButton.textContent = 'Removed from myposts';
+
+                                // Remove the post card from the DOM
+                                postCard.remove();
+                            }
+                            // Update the user's myposts in Firestore
+                            transaction.update(userRef, { myposts: userAllPosts });
+                        });
+                    }).catch((error) => {
+                        console.error("Transaction failed: ", error);
+                    });
+
+                }
+            });
         });
-      });
-  
     } else {
-      console.error('User must be signed in to modify myposts.');
-      deleteButton.disabled = true;
+        console.error('User must be signed in to modify myposts.');
+        deleteButton.disabled = true;
     }
-  }
+}
