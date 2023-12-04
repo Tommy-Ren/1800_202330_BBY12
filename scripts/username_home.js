@@ -10,11 +10,11 @@ function populateUserInfo() {
             currentUser.get().then(userDoc => {
                 //get the data fields of the user
                 var userName = userDoc.data().name;
-
-
+                var userLocation = userDoc.data().street + ", " + userDoc.data().zip;
                 //if the data fields are not empty, then write them in to the form.
                 if (userName != null) {
                     document.getElementById("nameInput2").innerText = userName;
+                    document.getElementById("userLocation").innerText = userLocation;
                 }
             })
         } else {
