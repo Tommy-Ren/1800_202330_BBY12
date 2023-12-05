@@ -80,7 +80,9 @@ function createFavorPostCard(post) {
 
   const postExpiration = document.createElement('p');
   postExpiration.className = 'post-expiration';
-  postExpiration.textContent = `Expires on: ${new Date(post.expirationDate).toLocaleDateString()}`;
+  const expirationDateString = post.date; 
+  const expirationDate = expirationDateString ? new Date(expirationDateString) : null;
+  postExpiration.textContent = expirationDate ? `Expires on: ${expirationDate.toLocaleDateString()}` : 'Expiration date not set';
   postExpiration.classList.add('hidden');
 
   const postStoreName = document.createElement('p');
@@ -104,19 +106,29 @@ function createFavorPostCard(post) {
     event.stopPropagation();
   });
 
-  postContent.addEventListener('click', function () {
-    postDescription.classList.toggle('hidden');
-    postExpiration.classList.toggle('hidden');
-    postStoreName.classList.toggle('hidden');
-    postStoreLocation.classList.toggle('hidden');
-    postDescription.classList.toggle('show');
-    postExpiration.classList.toggle('show');
-    postStoreName.classList.toggle('show');
-    postStoreLocation.classList.toggle('show');
-  });
+  const viewMoreButton = document.createElement('button');
+  viewMoreButton.className = 'view-more-button';
+  viewMoreButton.textContent = 'View More';
 
+  viewMoreButton.addEventListener('click', function() {
+  postDescription.classList.toggle('hidden');
+  postExpiration.classList.toggle('hidden');
+  postStoreName.classList.toggle('hidden'); 
+  postStoreLocation.classList.toggle('hidden'); 
+  postDescription.classList.toggle('show');
+  postExpiration.classList.toggle('show');
+  postStoreName.classList.toggle('show'); 
+  postStoreLocation.classList.toggle('show'); 
+
+  if (viewMoreButton.textContent === 'View More') {
+    viewMoreButton.textContent = 'View Less';
+} else {
+    viewMoreButton.textContent = 'View More';
+}
+
+});
   // Append everything to postCard
-  postActions.append(deleteButton);
+  postActions.append(deleteButton, viewMoreButton);
   postContent.append(postTags, postTitle, postPrice, postExpiration, postStoreName, postStoreLocation, postDescription, postActions);
   postCard.append(postImage, postContent);
 

@@ -426,9 +426,25 @@ video {
   font-size: large;
 }
 
+
 /************************ Shopping List/Favorites Page  ***************************/
 #favoritescontainer {
   background-color: rgb(237, 255, 195);
   font-family: 'Teko', sans-serif;
   font-size: large;
+}
+#add-post-link {
+  display: block; 
+  text-align: center; 
+  margin-bottom: 1rem; 
+}
+
+#add-post-btn {
+  padding: 10px 20px;
+  background-color: orange;
+  color: rgb(0, 0, 0); 
+  border: none;
+  border-radius: 10px; 
+  font-size: 18px; 
+
 }

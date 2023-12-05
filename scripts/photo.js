@@ -6,6 +6,7 @@ let videoStream;
 navigator.mediaDevices.getUserMedia({ video: true })
   .then((stream) => {
     videoStream = stream;
+    document.getElementById('video').srcObject = videoStream;
   })
   .catch((err) => {
     console.error(`Error accessing the camera: ${err}`);
@@ -13,14 +14,12 @@ navigator.mediaDevices.getUserMedia({ video: true })
 
 // Function to capture image from video stream
 function captureImage() {
-  const video = document.createElement('video');
-  video.srcObject = videoStream;
+  const video = document.getElementById('video');
   video.play();
-
-  // Create a canvas to capture the image
   const canvas = document.createElement('canvas');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
 
   // Draw the video frame to the canvas
   canvas.getContext('2d').drawImage(video, 0, 0);
