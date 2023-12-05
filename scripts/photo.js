@@ -1,5 +1,5 @@
 const snap = document.getElementById('snap');
-const fileInput = document.getElementById("pic-input"); 
+const fileInput = document.getElementById("pic-input");
 let videoStream;
 
 // Initialize camera access
