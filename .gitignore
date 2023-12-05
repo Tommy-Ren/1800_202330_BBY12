@@ -3,3 +3,9 @@
 node_modules/
 .vscode/
 firebaseAPI_BBY12.js
+firestore.rules
+storage.rules
+hosting..cache
+.firebaserc
+firebase.json
+firestore.indexes.json
