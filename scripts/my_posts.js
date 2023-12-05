@@ -140,7 +140,7 @@ function setupDeleteButton(deleteButton, postId, postCard) {
         // Event listener for clicks to remove from myposts
         deleteButton.addEventListener('click', function () {
             Swal.fire({
-                title: "Are you sure to delete it?",
+                title: "Delete?",
                 showCancelButton: true,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
