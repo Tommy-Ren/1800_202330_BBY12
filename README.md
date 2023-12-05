@@ -24,21 +24,19 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* 1 - Users need to log in first to use our app's functions. 
-* 2 - 
-* 3 - 
+* 1 - If users are using Savebites for the first time, they will need to click "Start" then register for a new acocunt following the standard Google sign-in interface
+* 2 - Once the users have logged in, they are already good to go to start using Savebites.
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
-* When a user tries to take a picture with the camera on user's device, the file isn't being saved in the firebase, so it is not showing in the uploaded post.
+* When a user tries to take a picture with the camera on user's device, the file isn't being saved in the firebase, so it is not showing in the uploaded post. (Camera button is hidden now)
 * Map sometimes doesn't show the closest location when typig the location name.
-* 
+
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
-* ...
-* ...
+* Fix mobile camera so users can upload a photo they directly with the phone camera
+
 	
 ## 7. Contents of Folder
 Content of the project folder:
