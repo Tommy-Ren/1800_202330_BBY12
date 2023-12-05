@@ -434,17 +434,20 @@ video {
   font-size: large;
 }
 #add-post-link {
-  display: block; 
-  text-align: center; 
-  margin-bottom: 1rem; 
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0 10px; 
+  box-sizing: border-box; 
 }
 
 #add-post-btn {
   padding: 10px 20px;
   background-color: orange;
-  color: rgb(0, 0, 0); 
+  color: rgb(0, 0, 0);
   border: none;
-  border-radius: 10px; 
-  font-size: 18px; 
-
+  border-radius: 10px;
+  font-size: 18px;
+  width: 100%; 
+  box-sizing: border-box; 
 }
