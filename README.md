@@ -1,12 +1,12 @@
 # Project Title
-
+Savebites
 ## 1. Project Description
 With rampant inflation, you deserve to find the lowest meat prices; save your wallet with every bite, Savebites!
 
 ## 2. Names of Contributors
 List team members and/or short bio's here...
 * Dominic Cheung dcheung71@my.bcit.ca - Hi, I am a beginner programmer. Excited to learn Javascript. My favorite food is ramen.
-* Maksim Sadreev msadreev@my.bcit.ca  Hi, I am Maksim Sadreev.
+* Maksim Sadreev msadreev@my.bcit.ca  Hi, I am Maksim Sadreev. 
 * Tommy Ren tren7@my.bcit.ca - Hi, I am Tommy. 
 	
 ## 3. Technologies and Resources Used
@@ -14,20 +14,25 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
+* Google maps API
+* Google Fonts
+* Material Icons
+* YouTube tutorials
+* Sweet Alerts
+
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* ...
-* ...
-* ...
+* 1 - Users need to log in first to use our app's functions. 
+* 2 - 
+* 3 - 
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
-* ...
-* ...
-* ...
+* When a user tries to take a picture with the camera on user's device, the file isn't being saved in the firebase, so it is not showing in the uploaded post.
+* Map sometimes doesn't show the closest location when typig the location name.
+* 
 
 ## 6. Features for Future
 What we'd like to build in the future:
