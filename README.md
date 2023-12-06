@@ -18,7 +18,7 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * Google Fonts
 * Material Icons
 * YouTube tutorials
-* Sweet Alerts
+* SweetAlert2
 
 
 ## 4. Complete setup/installion/usage
@@ -43,10 +43,16 @@ Content of the project folder:
 
 ```
  Top level of project folder: 
-├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
-├── main.html                # main HTML file after users log in
-├── login.html               # login HTML file, can use third party log in services as well as register a new account with email
+├── .gitignore              # Git ignore file
+├── index.html              # landing HTML file, this is what users see when you come to url
+├── login.html              # login HTML file, can use third party log in services as well as register a new account with email
+├── home_page.html          # Home page HTML file, this is where all the posts and news are showing.
+├── upload.html             # Upload page HTML file, this is where users can create and upload their own posts.
+├── setting_page.html       # Setting page HTML file, this is where users can change their profile, check their own posts, and log out to switch account.
+├── my_posts.html           # My Posts page HTML file, this is where users can check their own posts.
+├── favourite.html          # Favourite page HTML file, this is where users can check posts they added into their favourtie list.
+├── 404.html                # 404 Error page HTML file, the page showed when web page not found.
+├── map.html                # Map page HTML file, the page of a Google map
 └── README.md
 
 It has the following subfolders and files:
