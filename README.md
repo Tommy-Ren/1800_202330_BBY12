@@ -64,6 +64,7 @@ Top level of project folder:
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
+├── old                      # archive for unused and experimental code
 ├── images                   # Folder for images
     /favicon.ico             # Taken from: https://icons8.com/icon/38824/meat
     /IMG_4514.jpg            # Took picture myself at Safeway (Dominic)
