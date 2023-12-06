@@ -44,19 +44,41 @@ Content of the project folder:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
+├── 404.html                 # error page in case
+├── favourite.html           # this is the page where users save their favourite posts and can be accessed from nav bar
+├── home_page.html           # this is what the users see after they log in; newsfeed of all the popular deals and all posts
 ├── index.html               # landing HTML file, this is what users see when you come to url
-├── main.html                # main HTML file after users log in
-├── login.html               # login HTML file, can use third party log in services as well as register a new account with email
+├── login.html               # aftere the index page when users click start. Can be used for login and registering new accounts.
+├── map.html                 # map page when users click on the button on the posts to find the grocery store location
+├── my_posts.html            # a page of all posts that the users uploaded. Can be found via navbar -> my profile
+├── setting_page.html        # this is the page when users click on profile on the nav bar. Can update account details.
+├── upload.html              # this is the page for uploading new posts, can be accessed via navbar.
 └── README.md
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
+    /favicon.ico             # Taken from: https://icons8.com/icon/38824/meat
+    /IMG_4514.jpg            # Took picture myself at Safeway (Dominic)
+    /IMG_4515.jpg            # Took picture myself at Safeway (Dominic)
+    /IMG_4516.jpg            # Took picture myself at Safeway (Dominic)
+    /IMG_4517.jpg            # Took picture myself at Safeway (Dominic)
+    /IMG_4518.jpg            # Took picture myself at Safeway (Dominic)
+    /LOGO.svg                # SVG file provided by Tommy
+    /Savebites.jpg           # logo provided by Tommy
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    /authentication.js       # script for firebase login
+    /createPosts.js          # script for creating post cards
+    /favourite.js            # script for the favourites page
+    /firebaseAPI_BBY12.js    # script for firebase credentials
+    /home_page_posts.js      # script for generating cards on home page
+    /map.js                  # script for loading google maps
+    /my_posts.js             # script for loading cards for posts uploaded by users themselves
+    /setting_page.js         # script for the profile page
+    /upload.js               # script for uploading new posts
+    /username_home.js        # script for customized home screen to show user name and address
 ├── styles                   # Folder for styles
-    /style.css               # Font and Icon imports, media query size to iPhone 15 Pro Max, minor CSS adjustments 
+    /style.css               # Font and Icon imports, media query size to iPhone 15 Pro Max, vanilla CSS adjustments 
 
 
 
