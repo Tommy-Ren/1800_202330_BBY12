@@ -49,17 +49,17 @@ What we'd like to build in the future:
 ## 7. Contents of Folder
 Content of the project folder:
 
-Top level of project folder: 
-├── .gitignore               # Git ignore file
-├── 404.html                 # 404 Error page HTML file, the page showed when web page not found.
-├── favourite.html           # Favourite page HTML file, this is the page where users save their favourite posts and can be accessed by nav bar.
-├── home_page.html           # Home page HTML file, this is what the users see after they log in; newsfeed of all the popular deals and all posts
-├── index.html               # landing HTML file, this is what users see when you come to url
-├── login.html               # Login HTML file, a page used for login and registering new accounts. Can be visited aftere the index page when users click Start button. 
-├── map.html                 # Map page HTML file, this is where users can find the grocery store location. Can be visited by clicking the map or location button on the posts.
-├── my_posts.html            # My Posts page HTML file, this is where users can check their own posts. Can be found via navbar -> my profile
-├── setting_page.html        # Setting page HTML file, this is where users can update their profile, check their own posts, and log out to switch account. Can be accessed by clicking profile icon on the nav bar.
-├── upload.html              # Upload page HTML file, this is where users can create and upload their own posts. It can be accessed via navbar.
+ Top level of project folder: 
+├── .gitignore                  # Git ignore file 
+├── 404.html                    # 404 Error page HTML file, the page showed when web page not found. 
+├── favourite.html              # Favourite page HTML file, this is the page where users save their favourite posts and can be accessed by nav bar. 
+├── home_page.html              # Home page HTML file, this is what the users see after they log in; newsfeed of all the popular deals and all posts 
+├── index.html                  # landing HTML file, this is what users see when you come to url 
+├── login.html                  # Login HTML file, a page used for login and registering new accounts. Can be visited aftere the index page when users click Start button. 
+├── map.html                    # Map page HTML file, this is where users can find the grocery store location. Can be visited by clicking the map or location button on the posts. 
+├── my_posts.html               # My Posts page HTML file, this is where users can check their own posts. Can be found via navbar -> my profile 
+├── setting_page.html           # Setting page HTML file, this is where users can update their profile, check their own posts, and log out to switch account. Can be accessed by clicking profile icon on the nav bar. 
+├── upload.html                 # Upload page HTML file, this is where users can create and upload their own posts. It can be accessed via navbar. 
 └── README.md
 
 It has the following subfolders and files:
@@ -72,8 +72,8 @@ It has the following subfolders and files:
     /IMG_4516.jpg            # Took picture myself at Safeway (Dominic)
     /IMG_4517.jpg            # Took picture myself at Safeway (Dominic)
     /IMG_4518.jpg            # Took picture myself at Safeway (Dominic)
-    /LOGO.svg                # SVG file created by Tommy
-    /Savebites.jpg           # logo created by Tommy
+    /LOGO.svg                # SVG file provided by Tommy
+    /Savebites.jpg           # logo provided by Tommy
 ├── scripts                  # Folder for scripts
     /authentication.js       # script for firebase login
     /createPosts.js          # script for creating post cards
@@ -87,3 +87,4 @@ It has the following subfolders and files:
     /username_home.js        # script for customized home screen to show user name and address
 ├── styles                   # Folder for styles
     /style.css               # Font and Icon imports, media query size to iPhone 15 Pro Max, vanilla CSS adjustments 
+
