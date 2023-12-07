@@ -151,7 +151,7 @@ function savePostIDforUser(postDocID) {
       .then(() => {
         Swal.fire({
           icon: "success",
-          title: "Your post upload successfully!",
+          title: "Uploaded successfully!",
           showConfirmButton: false,
           timer: 1500
         });

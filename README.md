@@ -60,7 +60,7 @@ Content of the project folder:
 ├── login.html               # Login HTML file, a page used for login and registering new accounts. Can be visited aftere the index page when users click Start button
 ├── map.html                 # Map page HTML file, this is where users can find the grocery store location. Can be visited by clicking the map or location button on the posts.
 ├── my_posts.html            # My Posts page HTML file, this is where users can check their own posts. Can be found via navbar -> my profile
-├── setting_page.html        # Setting page HTML file, this is where users can update their profile, check their own posts, and log out to switch account. Can be accessed by clicking profile icon on the nav bar
+├── setting_page.html        # Setting page HTML file, this is where users can update their profile, check their own posts, and log out to switch account. Can be accessed by clicking profile  icon on the nav bar
 ├── upload.html              # Upload page HTML file, this is where users can create and upload their own posts. It can be accessed via navbar
 └── README.md
 
