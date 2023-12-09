@@ -1,10 +1,7 @@
 # Project Title
 Savebites
+
 ## 1. Project Description
-Savebites is your go-to solution in the face of recent inflation, providing a user-friendly platform to track and save on meat prices at various grocery stores. In a world where every bite can impact your wallet, Savebites empowers users to make informed purchasing decisions, ensuring they find the lowest prices for their favorite cuts.
-
-In a nutshell, SaveBites is not just an app; it's a budget-conscious foodie's ally, providing a seamless experience to combat inflation and make every meal a savvier, more satisfying experience.
-
 As inflation looms, you deserve to find the lowest meat prices; save your wallet with every bite, Savebites!
 
 ## 2. Names of Contributors
