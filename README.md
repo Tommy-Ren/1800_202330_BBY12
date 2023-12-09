@@ -21,8 +21,9 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * Google maps API
 * Google Fonts
 * Material Icons
-* YouTube tutorials
+* YouTube tutorials (Maksim: https://www.youtube.com/watch?v=UFD4SP91tSM&t=5427s, https://www.youtube.com/watch?v=CxgOKJh4zWE&t=1s, https://www.youtube.com/playlist?list=PLhPyEFL5u-i3uKNMHSDFx0_EqWiiPsvLk) 
 * SweetAlert2
+* ChatGPT (Maksim: I used ChatGPT to fix some bugs and to help me with Google Maps API) 
 
 
 ## 4. Complete setup/installion/usage
