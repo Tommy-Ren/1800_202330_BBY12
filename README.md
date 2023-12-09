@@ -2,7 +2,9 @@
 Savebites
 
 ## 1. Project Description
-As inflation looms, you deserve to find the lowest meat prices; save your wallet with every bite, Savebites!
+With rampant inflation, many people are struggling to pay for their usual groceries. According to Statistics Canada, the annualized inflation rate for groceries hit 11.4% at the start of 2023, and prices have continued to go up since then. The Canadian Broadcasting Corporation recently published a report stating that Canadians are planning to consume less meat due to inflation. 
+BCIT tasked us to design an app to improve our city for our COMP 1800 Projects course. So, we at Team BBY12 decided to create an app that helps alleviate the impact of inflation by providing a tool for the community to share deals for meats not found online. By tapping into the power of crowdsourcing, anyone can share their findings with their community in real time. 
+
 
 ## 2. Names of Contributors
 List team members and/or short bio's here...
@@ -31,21 +33,26 @@ State what a user needs to do when they come to your project.  How do others sta
 Here are the steps ...
 * 1 - If users are using Savebites for the first time, they will need to click "Start" then register for a new acocunt following the standard Google sign-in interface
 * 2 - Once the users have logged in, they are already good to go to start using Savebites.
-* 3 - After login, the first page user can see is the Home page. All posts are about good price meat in local grocery stores with a recent date. User can check more detailed information about this item by clicking the view more button. User can add it in favourtie list and give a like or dislike.
-* 4 - User can create their own post by clicking the "plus" icon in the nav bar. User need to give a title, a short description, price, expiration date, meat category (pork, beef, chicken), store name, and store address to create a complete post. Once user created the post, user can see their posts on our home page.
-* 5 - If users want update their personal information or check the posts they uploaded, they can click the profile icon in the nav bar to go to the setting page. User can click the Edit button to edit their personal information and address. User can click Log Out button to log out and switch account.
+* 3 - Reommendation after logging in: Check out the Home Page for hot deals and start liking, or adding it to your Favourites list.
+* 4 - Also consider uploading a post for any hot deals you may have found and give back to the community.
+
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
 * When a user tries to take a picture with the camera on user's device, the file isn't being saved in the firebase, so it is not showing in the uploaded post. (Camera button is hidden now)
-* Map sometimes doesn't show the closest location when typig the location name.
-* Map sometimes shows the icon of current location twice.
+* Map does not default to the closest Safeway, Save-On-Foods, etc.
+* Map's icon results is not clickable.
+
 
 ## 6. Features for Future
 What we'd like to build in the future:
 * Fix mobile camera so users can upload a photo they directly with the phone camera
-* Fix map so users can use map to set their address directly using a visual map instead of text.
+* Make Map more interactive by allowing it to add a location via touch as opposed to text only.
 * We are going to use more Bootstrap libraries in the future to create more animation and beautiful effect to decorate our UI.
+* Automatically hide posts on Home Page if the deal has expired.
+* Automatically hide posts with a large amount of dislikes.
+* Add OCR features so fields are automatically filled in the Upload Posts page.
+
 
 	
 ## 7. Contents of Folder
@@ -54,15 +61,15 @@ Content of the project folder:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
-├── 404.html                 # 404 Error page HTML file, the page showed when web page not found
-├── favourite.html           # Favourite page HTML file, this is the page where users save their favourite posts and can be accessed by nav bar
-├── home_page.html           # Home page HTML file, this is what the users see after they log in; newsfeed of all the popular deals and all posts
-├── index.html               # Landing HTML file, this is what users see when you come to url
-├── login.html               # Login HTML file, a page used for login and registering new accounts. Can be visited aftere the index page when users click Start button
-├── map.html                 # Map page HTML file, this is where users can find the grocery store location. Can be visited by clicking the map or location button on the posts.
-├── my_posts.html            # My Posts page HTML file, this is where users can check their own posts. Can be found via navbar -> my profile
-├── setting_page.html        # Setting page HTML file, this is where users can update their profile, check their own posts, and log out to switch account. Can be accessed by clicking profile  icon on the nav bar
-├── upload.html              # Upload page HTML file, this is where users can create and upload their own posts. It can be accessed via navbar
+├── 404.html                 # 404 Error page 
+├── favourite.html           # This is the page where users save their favourite posts and can be accessed by nav bar
+├── home_page.html           # Splash page after logging in. A newsfeed of all the popular deals and all posts
+├── index.html               # First page with our logo and the Start button
+├── login.html               # Used for login and registering new accounts. Accessible by clicking the Start button on our index page.
+├── map.html                 # Loads the Google Map API, this is where users can find grocery stores without switching out of the app. Accessible by clicking the Map button on posts.
+├── my_posts.html            # This is where users can check their own posts. Can be found via navbar -> my profile
+├── setting_page.html        # This is where users can update their profile, check their own posts, and log out to switch account. Can be accessed by clicking profile icon on the nav bar
+├── upload.html              # This is where users can create and upload their own posts. It can be accessed via navbar
 └── README.md
 
 It has the following subfolders and files:
