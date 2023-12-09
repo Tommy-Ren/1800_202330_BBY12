@@ -21,6 +21,9 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * YouTube tutorials (Maksim: https://www.youtube.com/watch?v=UFD4SP91tSM&t=5427s, https://www.youtube.com/watch?v=CxgOKJh4zWE&t=1s, https://www.youtube.com/playlist?list=PLhPyEFL5u-i3uKNMHSDFx0_EqWiiPsvLk) 
 * SweetAlert2
 * ChatGPT (Maksim: I used ChatGPT to fix some bugs and to help me with Google Maps API) 
+* W3Schools (Tommy: https://www.w3schools.com/html/tryit.asp?filename=tryhtml_input_date, https://www.w3schools.com/bootstrap5/index.php/index.php)
+* MDN (Tommy: https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* Bootanipp (Tommy: https://bootsnipp.com/tags/profile/4)
 
 
 ## 4. Complete setup/installion/usage
